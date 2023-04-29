@@ -1,0 +1,190 @@
+1 - select stmts uses
+stmt s1; variable v;
+Select s1 such that Uses(s1, v)
+1, 2, 3, 4, 6, 7, 8, 9, 11, 13, 14, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30, 31, 34, 35, 38, 39, 40, 47, 48, 49, 50, 52, 53, 54, 55, 56, 59, 60
+5000
+2 - select stmt uses
+stmt s1; variable v;
+Select s1 such that Uses(s1, "temp")
+
+5000
+3 - select stmt uses
+stmt s1; variable v;
+Select s1 such that Uses(s1, "true")
+1, 2, 3, 4, 13, 14, 23, 24, 25, 26, 35, 47, 48, 49, 50, 52, 53, 56, 60
+5000
+4 - select stmt uses
+stmt s1; variable v;
+Select s1 such that Uses(s1, "false")
+20, 21, 47, 48, 49, 52, 53, 56
+5000
+5 - select stmt uses
+stmt s1;
+Select s1 such that Uses(s1, _)
+1, 2, 3, 4, 6, 7, 8, 9, 11, 13, 14, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30, 31, 34, 35, 38, 39, 40, 47, 48, 49, 50, 52, 53, 54, 55, 56, 59, 60
+5000
+6 - select stmt uses with
+stmt s1; variable v;
+Select s1 such that Uses(s1, v) with v.varName = "y"
+38, 47, 48, 49, 52, 53, 56
+5000
+7 - select stmt uses with
+stmt s1; variable v;
+Select s1 such that Uses(s1, "y") with v.varName = "y"
+38, 47, 48, 49, 52, 53, 56
+5000
+8 - select stmt uses
+stmt s1; variable v;
+Select s1 such that Uses(s1, "y")
+38, 47, 48, 49, 52, 53, 56
+5000
+9 - select stmt uses
+variable v;
+Select v such that Uses(6, v)
+c, d
+5000
+10 - select stmt uses
+variable v;
+Select v such that Uses(7, v)
+c, d
+5000
+11 - select stmt uses
+variable v;
+Select v such that Uses(1, v)
+a, b, c, d, alsoTrue, bypass, nestedWhileLoop, nestedWhileLoopAtBot, nestedWhileLoopAtMid, nestedWhileLoopAtTop, true
+5000
+12 - select stmt uses
+variable v;
+Select v such that Uses(1, _)
+a, alsoTrue, b, bypass, c, d, end, false, nested, nestedAllAtTop, nestedWhileLoop, nestedWhileLoopAtBot, nestedWhileLoopAtMid, nestedWhileLoopAtTop, nestedWhiles, roger, someMoreStuff, true, x, x1, x2, x3, x4, x5, y
+5000
+12 - select v
+variable v;
+Select v
+a, alsoTrue, b, bypass, c, d, end, false, nested, nestedAllAtTop, nestedWhileLoop, nestedWhileLoopAtBot, nestedWhileLoopAtMid, nestedWhileLoopAtTop, nestedWhiles, roger, someMoreStuff, true, x, x1, x2, x3, x4, x5, y
+5000
+13 - select uses invalid uses semantic error
+variable v;
+Select v such that Uses(_, _)
+SemanticError
+5000
+14 - select uses invalid uses syntax error
+variable v;
+Select v such that Uses(, _)
+SyntaxError
+5000
+15 - select uses invalid uses semantic error
+variable v;
+Select v such that Uses(s, _)
+SemanticError
+5000
+16 - select uses invalid uses syntax error
+variable v;
+Select v such that Uses(_)
+SyntaxError
+5000
+17 - select uses invalid uses syntax error
+variable v;
+Select v Uses(_)
+SyntaxError
+5000
+18 - select uses invalid uses syntax error
+variable v; stmt s;
+Select v such that Uses(s,"x+y")
+SyntaxError
+5000
+19 - select uses invalid uses syntax error
+variable v; stmt s;
+Select v such that Uses(s,"_x_")
+SyntaxError
+5000
+20 - select uses invalid uses semantic error
+variable v; stmt s;
+Select v such that Uses(v, _)
+SemanticError
+5000
+21 - select uses
+variable v; stmt s; assign a;
+Select a such that Uses(a, v)
+11, 13, 14, 21, 26, 30, 31, 34, 38, 4, 50, 54, 55, 59, 8, 9
+5000
+22 - select uses lhs assign
+variable v; stmt s; assign a;
+Select a such that Uses(a, _)
+4, 8, 9, 11, 13, 14, 21, 26, 30, 31, 34, 38, 50, 54, 55, 59
+5000
+23 - select uses lhs read
+variable v; stmt s; assign a; read r;
+Select r such that Uses(r, _)
+
+5000
+23 - select uses lhs print
+variable v; stmt s; assign a; read r; print p;
+Select p such that Uses(p, _)
+18, 19, 39, 40
+5000
+24 - select print
+variable v; stmt s; assign a; read r; print p;
+Select p
+18, 19, 39, 40
+5000
+24 - select uses lhs constant semanticerror
+variable v; stmt s; assign a; read r; print p; constant c;
+Select c such that Uses(c, _)
+SemanticError
+5000
+25 - select uses lhs variable semanticerror
+variable v; stmt s; assign a; read r; print p; constant c;
+Select v such that Uses(v, _)
+SemanticError
+5000
+26 - select uses lhs if
+if if;
+Select if such that Uses(if, _)
+3, 7, 20, 25, 29, 49, 53
+5000
+27 - select uses lhs while
+while w;
+Select w such that Uses(w, _)
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+28 - select uses lhs while rhs not v
+while w; if if;
+Select w such that Uses(w,if)
+SemanticError
+5000
+29 - select uses lhs if rhs not v
+while w; if if;
+Select w such that Uses(if,w)
+SemanticError
+5000
+30 - select uses lhs if rhs v
+while w; if if; variable v;
+Select if such that Uses(if,v)
+3, 7, 20, 25, 29, 49, 53
+5000
+31 - select uses lhs w rhs v
+while w; if if; variable v;
+Select w such that Uses(w,v)
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+32 - select uses lhs if rhs v
+while w; if if;
+Select if such that Uses(if,"c")
+3, 7, 25, 29, 49, 53
+5000
+33 - select uses lhs w rhs v
+while w; if if;
+Select w such that Uses(w,"d")
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+34 - select if
+while w; if if; variable v;
+Select if such that Uses(w,"d")
+3, 7, 20, 25, 29, 49, 53
+5000
+35 - select if
+while w; if if; variable v;
+Select if such that Uses(w,"not")
+
+5000

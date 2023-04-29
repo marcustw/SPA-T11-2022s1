@@ -1,0 +1,60 @@
+name: SPA Continuous Integration
+
+on:
+  pull_request:
+    branches: 
+      - master
+
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_run_test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-2022
+        compiler:
+          - msvc
+        config: ["Release"]
+    steps:
+      # Checkout current branch
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Add MSBuild to Path to C:\Program Files\Microsoft Visual Studio\2022\Enterprise
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          # Microsoft VS 2022 latest version
+          vs-version: '[17.3,17.4)'
+
+      # Build SPA Solution
+      - name: Build SPA Solution on ${{ matrix.config }}
+        run: msbuild Team11\Code11\StartupSPASolution.sln -t:rebuild -verbosity:m -property:Configuration=${{ matrix.config }}
+
+      # Run Unit Tests using vstest.console.exe
+      - name: Run UnitTesting on ${{ matrix.config }}
+        run: >
+          invoke-expression "& 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\\vstest.console.exe' Team11\Code11\${{ matrix.config }}\UnitTesting.dll"
+      # Run Integration Tests using vstest.console.exe
+      - name: Run IntegrationTesting on ${{ matrix.config }}
+        run: >
+          invoke-expression "& 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TestWindow\\vstest.console.exe' Team11\Code11\${{ matrix.config }}\IntegrationTesting.dll"
+        
+      # Run System tests
+      - name: Run System tests
+        run: ./run_check.sh ${{ matrix.config }}
+        shell: bash
+  
+  cpplint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-python@v1
+    - run: pip install cpplint
+    - run: cpplint --exclude=./Team11/Code11/AutoTester/* --filter=-whitespace/tab,-whitespace/braces,-whitespace/indent,-build/header_guard,-build/include_what_you_use,-build/include_subdir,-build/namespaces,-legal --linelength=120 --recursive .
+

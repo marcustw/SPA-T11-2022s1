@@ -1,0 +1,115 @@
+1 - pattern syntax error
+if if; 
+Select if pattrn if(_, _, _)
+SyntaxError
+5000
+2 - pattern semantic error
+if if;
+Select if pattern ifs(_, _, _)
+SemanticError
+5000
+3 - pattern semantic error
+if ifs; 
+Select if pattern ifs(_, _, _)
+SemanticError
+5000
+4 - pattern syntax error
+if ifs; 
+Select if pattrn ifs(_, _, _)
+SyntaxError
+5000
+5 - pattern double wildcard
+if if;
+Select if pattern if(_, _, _)
+4, 10, 23, 29, 31, 33, 35, 38, 39, 43
+5000
+6 - pattern synonym wildcard
+if if; variable v;
+Select if pattern if(v, _, _)
+4, 10, 23, 29, 31, 33, 35, 38, 39, 43
+5000
+7 - pattern synonym wildcard
+if if; variable v;
+Select v pattern if(v, _, _)
+x19, x22, x23, x3, x31, x9 
+5000
+8 - pattern synonym wildcard
+if if; variable v;
+Select <if, v> pattern if(v, _, _)
+4 x3, 10 x9, 23 x19, 29 x22, 29 x23, 31 x22, 33 x22, 33 x23, 35 x22, 35 x23, 38 x22, 38 x31, 39 x22, 39 x23, 39 x31, 43 x31
+5000
+9 - pattern nonexistent synonym wildcard
+if if;
+Select if pattern if(v, _, _)
+SemanticError
+5000
+10 - pattern nonexistent synonym wildcard
+if if; variable v;
+Select if pattern if(v1, _, _)
+SemanticError
+5000
+11 - pattern "IDENT" wildcard
+if if;
+Select if pattern if("x23", _, _)
+29, 33, 35, 39
+5000
+12 - pattern "IDENT" wildcard
+if if;
+Select if pattern if("x22", _, _)
+29, 31, 33, 35, 38, 39
+5000
+13 - pattern nonexistent "IDENT" wildcard
+if if; variable v;
+Select if pattern if("v", _, _)
+none
+5000
+14 - pattern nonexistent "IDENT" wildcard
+if if;
+Select if pattern if("w", _, _)
+none
+5000
+15 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if(v, "99", _)
+SyntaxError
+5000
+16 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", ")
+SyntaxError
+5000
+17 - invalid pattern ifs, semantic error
+if if; variable v;
+Select if pattern if("v", _)
+SemanticError
+5000
+18 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", v, _)
+SyntaxError
+5000
+19 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", v, "_")
+SyntaxError
+5000
+20 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", _, v)
+SyntaxError
+5000
+21 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", "_", v)
+SyntaxError
+5000
+22 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", v, v)
+SyntaxError
+5000
+23 - invalid pattern ifs, syntax error
+if if; variable v;
+Select if pattern if("v", "_", "_")
+SyntaxError
+5000

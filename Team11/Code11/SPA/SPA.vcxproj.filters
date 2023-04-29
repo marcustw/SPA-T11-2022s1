@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- PKB CPP -->
+    <ClCompile Include="..\source\PKB\Entity\Assign.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\Constant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\ContainerIf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\ContainerWhile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\PrintVar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\ProcCall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\Procedure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\ReadVar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\Statement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Entity\Variable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Pattern\Pattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\CallRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\CallsT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\Follows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\FollowsT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\Parent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\ParentT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\UsesS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\UsesP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\ModifiesS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\ModifiesP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\Relationship\Next.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\PKB\PKB.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\PKB\PKBQueryAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\PKB\PKBStorageAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <!-- Main CPP -->
+    <ClCompile Include="..\source\Common\Lexer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Common\SPAException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Common\ExpressionParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <!-- SP CPP -->
+    <ClCompile Include="..\source\SP\AST\ASTGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\SPSyntax.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\ExpressionNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\ProgrammeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\ProcedureNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\StmtLstNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\StmtNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\AST\TNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\EntityVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\FollowsVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\ParentTVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\ParentVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\UsesVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\ModifiesVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\PatternVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Visitors\Visitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\SP\Visitors\VisitorManager.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\SP\Extractors\CFG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Extractors\CallsExtractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Extractors\ExtractorUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\SP\Extractors\NextExtractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <!-- QPS CPP -->
+	<ClCompile Include="..\source\QPS\Common\QPSCache.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\QPS\Common\PQLCommon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Common\PQLSyntax.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Parser\PQLParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Parser\PQLPattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Parser\PQLQueryObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Parser\PQLRelationship.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Parser\PQLWith.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\EvaluatorFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\GetAllEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\QPSEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\QueryResult.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\WithEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\BaseEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\Processor\AffectsBaseProcessor.cpp">
+	    <Filter>Source Files</Filter>
+	</ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\Processor\AffectsProcessor.cpp">
+	    <Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\Processor\AffectsTProcessor.cpp">
+	    <Filter>Source Files</Filter>
+	</ClCompile>
+      <ClCompile Include="..\source\QPS\Evaluator\Processor\NextTProcessor.cpp">
+          <Filter>Source Files</Filter>
+      </ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\Processor\Processors.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsBaseEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsEvaluator.cpp">
+		<Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsTEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+      <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsBaseEvaluator.cpp">
+          <Filter>Source Files</Filter>
+      </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsTEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\ModifiesSEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\ModifiesPEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\NextEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\NextTEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\RelationshipEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\UsesSEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\UsesPEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\UMSEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\UMPEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+
+    <ClCompile Include="..\source\QPS\Evaluator\PatternEvaluator\PatternAEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\PatternEvaluator\PatternIEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\PatternEvaluator\PatternWEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\PatternEvaluator\PatternEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\PatternEvaluator\PatternContainerEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\FollowsEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\FollowsTEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\ParentEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\ParentTEvaluator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+	<ClCompile Include="..\source\QPS\Evaluator\RelationshipEvaluator\FPEvaluator.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+
+	<ClCompile Include="..\source\QPS\Projector\ResultProjector.cpp">
+		<Filter>Source Files</Filter>
+	</ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- PKB Header -->
+    <ClInclude Include="..\source\PKB\BidirectionalTable\SameSynonymBidirectionalTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\PKB\Entity\Assign.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\Constant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\ContainerIf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\ContainerWhile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\PrintVar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\ProcCall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\Procedure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\ReadVar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\Statement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Entity\Variable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Pattern\Pattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\CallRel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\CallsT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\Follows.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\FollowsT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\Parent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\ParentT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\UsesS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\UsesP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\ModifiesS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\ModifiesP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\Relationship\Next.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\PKB\PKB.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\PKB\PKBQueryAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\PKB\PKBStorageAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <!-- Main Header -->
+    <ClInclude Include="..\source\Common\Lexer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Common\SPAException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Common\Types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Common\ExpressionParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <!-- SP Header -->
+    <ClInclude Include="..\source\SP\AST\ASTGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\SPSyntax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\ExpressionNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\ProcedureNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\ProgrammeNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\StmtLstNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\StmtNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\AST\TNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Extractors\ExtractorUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\EntityVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\FollowsVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\ParentTVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\ParentVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\UsesVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\ModifiesVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\PatternVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Visitors\Visitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\SP\Visitors\VisitorManager.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\SP\Extractors\CFG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Extractors\CallsExtractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\SP\Extractors\NextExtractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <!-- QPS Header -->
+	<ClInclude Include="..\source\QPS\Common\QPSCache.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\QPS\Common\PQLCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Common\PQLSyntax.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Parser\PQLParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Parser\PQLPattern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Parser\PQLQueryObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Parser\PQLRelationship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Parser\PQLWith.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\EvaluatorFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\GetAllEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\QPSEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\QueryResult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\WithEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\BaseEvaluator.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\Processor\AffectsBaseProcessor.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\Processor\AffectsProcessor.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\Processor\AffectsTProcessor.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+      <ClInclude Include="..\source\QPS\Evaluator\Processor\NextTProcessor.h">
+          <Filter>Header Files</Filter>
+      </ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\Processor\Processors.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsBaseEvaluator.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\AffectsTEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+      <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsBaseEvaluator.h">
+          <Filter>Header Files</Filter>
+      </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\CallsTEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\ModifiesSEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\ModifiesPEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\NextEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\NextTEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\RelationshipEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\UsesSEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\UsesPEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\UMSEvaluator.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\UMPEvaluator.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+
+    <ClInclude Include="..\source\QPS\Evaluator\PatternEvaluator\PatternAEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\PatternEvaluator\PatternIEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\PatternEvaluator\PatternWEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\PatternEvaluator\PatternEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+	<ClInclude Include="..\source\QPS\Evaluator\PatternEvaluator\PatternContainerEvaluator.h">
+		<Filter>Header Files</Filter>
+	</ClInclude>
+    <ClInclude Include="..\source\QPS\Projector\ResultProjector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\FPEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\FollowsEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\FollowsTEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\ParentEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\QPS\Evaluator\RelationshipEvaluator\ParentTEvaluator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

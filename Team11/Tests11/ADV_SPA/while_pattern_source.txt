@@ -1,0 +1,68 @@
+procedure main {
+	read x1;
+	read x2;
+	x3 = (x1 + 2) / 9 - 3;
+	if (x3 > 10) then {
+		call second;
+	} else {
+		x6 = 1;
+		print x3;
+	}
+	while (x6 == 1) {
+		x9 = x2 + ((x1 / 2) + 8) - 2;
+		if (x9 == 10) then {
+			x1 = 2;
+		} else {
+			call third;
+			call fourth;
+		}
+		x6 = x6 - 1;
+	}
+	print x1;
+}
+
+procedure second {
+	x16 = 16;
+	while (x16 == 16) {
+		x16 = x16 + 1;
+	}
+}
+
+procedure third {
+	x18 = (1 + 5) / (7 * 7);
+	x19 = 0;
+	call fourth;
+	while ( x19 < 2) {
+		x19 = x19 + 1;
+	}
+}
+
+procedure fourth {
+	read x21;
+	x22 = 1234567;
+	x23 = x21 + x21 + x22 + x22;
+	while (x22 != x23) {
+		call second;
+		while (x22 > 9999) {
+			call second;
+			while (x23 < x22) {
+				x29 = 29;
+				while ((x22 == 0) || (x23 > 0))  {
+					read x31;	
+					x32 = 32;
+					while ((!(x31 < 0)) || (x22 >= 0)) {
+						if (((x23<=x22) && (x22>x31)) && (x22 != ((0+0*0)+1/4)%1)) then {
+							print x22;
+						} else {
+							x36 = 9;
+							read x36;
+							while (x36 == 9) {
+								x36 = x22 - 1000;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

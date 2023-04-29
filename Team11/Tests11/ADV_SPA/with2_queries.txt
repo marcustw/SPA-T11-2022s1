@@ -1,0 +1,185 @@
+1 - select s with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v;
+Select s with ca.procName = v.varName
+none
+5000
+2 - select pr with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select pr.stmt# with pr.varName = r.varName
+18, 19, 39, 40
+5000
+3 - select r with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select r with pr.varName = r.varName
+16, 17, 41, 43, 45, 46
+5000
+4 - select tuple with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <pr, r> with pr.varName = r.varName
+39 16, 39 43, 40 17, 40 41, 40 46, 19 17, 19 41, 19 46, 18 45
+5000
+5 - select tuple with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <pr.varName, r> with pr.varName = r.varName
+x1 16, x1 43, x2 17, x2 41, x2 46, x5 45
+5000
+6 - select tuple with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <pr.varName, r.stmt#> with pr.varName = r.varName
+x1 16, x1 43, x2 17, x2 41, x2 46, x5 45
+5000
+7 - select tuple with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <pr.stmt#, r.varName> with pr.varName = r.varName
+18 x5, 19 x2, 39 x1, 40 x2
+5000
+8 - select tuple attribute with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <pr.stmt#, pr.varName> with pr.varName = r.varName
+18 x5, 19 x2, 39 x1, 40 x2
+5000
+9 - select tuple attribute with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <ca.procName, ca.stmt#, ca, s> with ca.stmt# = s.stmt#
+ThreeNestedWhileLoopTop 35 35 35, FourtNestedWhileLoopMid 56 56 56, ThreeNestedWhileLoopTop 60 60 60
+5000
+10 - select tuple attribute with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = v.varName
+16 x1, 17 x2, 41 x2, 42 x3, 43 x1, 44 x4, 45 x5, 46 x2 
+5000
+11 - select tuple attribute with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName>
+16 x1, 17 x2, 41 x2, 42 x3, 43 x1, 44 x4, 45 x5, 46 x2 
+5000
+12 - select tuple attribute with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.varName
+16 x1, 17 x2, 41 x2, 43 x1, 45 x5, 46 x2 
+5000
+13 - select with syntaxError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.name
+SyntaxError
+5000
+14 - select with syntaxError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varname = pr.varName
+SyntaxError
+5000
+15 - select with semanticError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.procName
+SemanticError
+5000
+16 - select with semanticError + syntaxError, throw SyntaxError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varname = pr.procName
+SyntaxError
+5000
+17 - select with multi clause
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.varName and r.stmt# = s.stmt# with pr.varName = "x1"
+43 x1, 16 x1
+5000
+18 - select with multi clause semantic error
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.varName and r.stmt# = s.stmt# with pr.varName = "x1" with p.varName = "x1"
+SemanticError
+5000
+19 - select with multi clause semanticError + syntaxError, throw SyntaxError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.varName and r.stmt# = s.stmt# with pr.varName = "x1" with p.varName = "x1" and p.stmt = 1
+SyntaxError
+5000
+20 - select with multi clause semanticError
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <r.stmt#, r.varName> with r.varName = pr.varName and r.stmt# = s.stmt# with pr.varName = "x1" with p.varName = "x1" and p.stmt# = 1
+SemanticError
+5000
+21 - select with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select <w.stmt#> with w.stmt# = 48
+48
+5000
+22 - select with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select c.value with 2 = c.value
+2
+5000
+23 - select with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select c with 2 = c.value
+2
+5000
+24 - select with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select c with 9 = c.value
+none
+5000
+25 - select with
+constant q; stmt s; call ca, ca2; constant c; if if; while w; variable v; print pr; read r; procedure p;
+Select c with c.value = 11
+none
+5000
+26 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = s.stmt#
+10, 11, 12, 13, 14, 15, 21, 22, 26, 27, 30, 31, 32, 33, 34, 36, 37, 38, 4, 5, 50, 51, 54, 55, 57, 58, 59, 61, 8, 9
+5000
+27 - select a
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a
+10, 11, 12, 13, 14, 15, 21, 22, 26, 27, 30, 31, 32, 33, 34, 36, 37, 38, 4, 5, 50, 51, 54, 55, 57, 58, 59, 61, 8, 9
+5000
+28 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = if.stmt#
+none
+5000
+29 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = ca.stmt#
+none
+5000
+30 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = w.stmt#
+none
+5000
+31 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = pr.stmt#
+none
+5000
+32 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = r.stmt#
+none
+5000
+33 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select a with a.stmt# = a.stmt#
+10, 11, 12, 13, 14, 15, 21, 22, 26, 27, 30, 31, 32, 33, 34, 36, 37, 38, 4, 5, 50, 51, 54, 55, 57, 58, 59, 61, 8, 9
+5000
+34 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select <a.stmt#, c.value> with a.stmt# = c.value
+4 4, 5 5, 10 10
+5000
+35 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select <s> with a.stmt# = c.value and s.stmt# = a.stmt#
+4, 5, 10
+5000
+36 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select <s> with a.stmt# = c.value and s.stmt# = ca.stmt#
+35, 56, 60
+5000
+37 - select with
+constant q; stmt s; call ca; constant c; if if; while w; variable v; print pr; read r; procedure p; assign a;
+Select <s, a> with a.stmt# = c.value and s.stmt# = ca.stmt#
+35 10, 35 4, 35 5, 56 10, 56 4, 56 5, 60 10, 60 4, 60 5
+5000

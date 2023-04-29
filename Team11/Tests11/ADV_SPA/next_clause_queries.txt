@@ -1,0 +1,105 @@
+1 - valid - next_two_integer
+procedure p;
+Select p such that Next (1, 2)
+ifInWhile
+5000
+2 - valid - selectStmt_next_two_synonym
+stmt s, s1;
+Select s1 such that Next (s, s1)
+2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+5000
+3 - valid - selectStmt_next_two_wildcard
+stmt s;
+Select s such that Next (_, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+5000
+4 - valid - selectStmt_next_integer_stmt_synonym
+procedure p; stmt s;
+Select s such that Next (1, s)
+2
+5000
+5 - valid - selectStmt_next_stmt_synonym_integer
+procedure p; stmt s;
+Select s such that Next (s, 12)
+6, 7, 10, 11, 19, 20
+5000
+6 - valid - selectStmt_next_read_synonym_wildcard
+stmt s; read r;
+Select r such that Next (r, _)
+6, 8, 10, 20
+5000
+7 - valid - selectProc_next_wildcard_print_synonym
+stmt s; print p;
+Select p such that Next (_, p)
+4, 7, 11
+5000
+8 - valid - selectProc_next_integer_wildcard
+stmt s; print p;
+Select p such that Next (1, _)
+4, 7, 11
+5000
+9 - valid - selectProc_next_wildcard_integer
+stmt s; print p;
+Select p such that Next (_, 12)
+4, 7, 11
+5000
+10 - valid - next_stmt_synonym_read_synonym
+stmt s; read r;
+Select s such that Next (s, r)
+2, 5, 9, 15
+5000
+11 - valid - next_print_synonym_stmt_synonym
+stmt s; print p;
+Select s such that Next (p, s)
+5, 12
+5000
+12 - invalid - next_var_synonym_stmt_synonym
+stmt s; variable v;
+Select s such that Next (v, s)
+SemanticError
+5000
+13 - invalid - next_stmt_synonym_var_synonym
+stmt s; variable v;
+Select s such that Next (s, v)
+SemanticError
+5000
+14 - valid - next_call_synonym_wildcard
+stmt s; call c;
+Select s such that Next (c, _)
+
+5000
+15 - valid - next_wildcard_call_synonym
+stmt s; call c;
+Select s such that Next (_, c)
+
+5000
+16 - valid - next_integer_while_synonym
+while w;
+Select w such that Next (11, w)
+12
+5000
+12 - valid - next_while_synonym_integer
+while w;
+Select w such that Next (w, 17)
+16
+5000
+12 - valid - next_if_synonym_stmt_synonym
+stmt s; if i;
+Select s such that Next (i, s)
+3, 6, 7, 8, 10, 11, 16, 20
+5000
+19 - valid - next_call_synonym_wildcard
+stmt s; if i;
+Select s such that Next (s, i)
+1, 4, 8, 14
+5000
+20 - valid - next_two_integer_while_loop
+procedure p;
+Select p such that Next (20, 12)
+ifInWhile
+5000
+21 - valid - next_two_integer_while_loop
+procedure p;
+Select p such that Next (19, 12)
+ifInWhile
+5000

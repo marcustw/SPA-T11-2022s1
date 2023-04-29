@@ -1,0 +1,30 @@
+procedure main {
+ 	a = 2;
+while (n > 3) {
+	Z = 4;
+  	while (a < 2) {
+  		y = 100; 
+  		Z = 6;
+		x = 5;
+	}
+	if ( 1 < 2 ) then {
+  		z = 100; 
+  		Z = 6;
+		while (z > 80) {
+			x = x+1;
+		}
+		x = z + Z;
+	} else {
+		x = 4 + y;
+		coupon = 5;
+	}
+	print x;
+	if (a < 2) then {
+  		y = 100; 
+		x = z;
+	} else {
+		x = y*z+5*6;
+		read w;
+	}
+}
+}

@@ -1,0 +1,181 @@
+procedure First {
+	read x;
+	read z;
+	call Second;
+}
+
+procedure Second {
+	x = 0;
+	i = 5;
+	while (i != 0) {
+		x = x + 2 * y;
+		call Third;
+		i = i - 1;
+	}
+	if (x == 1) then {
+		x = x + 1;
+	} else {
+		z = 1;
+	}
+	z = z + x + 1;
+	y = z + 2;
+	x = x * y + z;
+}
+
+procedure Third {
+	z = 5;
+	v = z;
+	print v;
+}
+
+procedure p {
+	x19 = 1;
+	x20 = 2;
+	x21 = x20;
+	call q;
+	x21 = x19 + x20 + x21;
+}
+
+procedure q {
+	x19 = 5;
+	x25 = 4;
+	if(x25 > 0) then {
+		x25 = x19 + 1;
+	} else {
+		x20 = x19 + x21;
+	}
+	x19 = x25 + 1;
+}
+
+procedure checkIf {
+	x30 = 5;
+	if (x30 > 0) then {
+		x32 = 5;
+	} else {
+		x33 = x32;
+	}
+}
+
+procedure checkIfNested {
+	x34 = 5;
+	if (x34 > 0) then {
+		x36 = 5;
+		if (x36 == 0) then {
+			x38 = 0;
+		} else {
+			x39 = 99;
+		}
+	} else {
+		x40 = x32;
+		if (x40 == 3) then {
+			x41 = 9;
+		} else {
+			x43 = 44;
+		}
+		x44 = 0;
+	}
+}
+
+procedure checkStmt {
+	call Third;
+	read x46;
+	x53 = 1;
+	call Third;
+	y = 2;
+}
+
+procedure checkWhile {
+	while (x1 ==5) {
+		x51 = x51 * x50 - 22;
+		call checkStmt;
+		x53 = x53 + 1;
+		x54 = x54 * 2;
+	}
+}
+
+procedure multiplePaths {
+	if (x55 == 1) then {
+		if (x56 > 134) then {
+			if (x57 < 2) then {
+				x58 = x59 + x60;
+				x60 = x56 - x55;
+				if (x58 >= 3) then {
+					x55 = 0;
+				} else {
+					x55 = 1;
+				}
+				x58 = 99;
+				if (x60 == 0) then {
+					x65 = 0;
+				} else {
+					x58 = 0;
+				}
+			} else {
+				x67 = x60 * x58 / 6;
+			}
+		} else {
+			if (x55 > 3) then {
+				x69 = x69 * 3;
+			} else {
+				x69 = x69 * 2;
+			}
+			x71 = x69 * 0;
+			if (x69 == 0) then {
+				x71 = x71 - 1 ;
+			} else {
+				x74 = 2 * 2 * 7 / 5 / 2;
+			}
+		call multipleWhile;
+		}
+	} else {
+		x76 = x76 * x76;
+	}
+}
+
+procedure multipleWhile {
+	while (x77 == 0) {
+		if (x77 >= 0) then {
+			while (x78 == 1) {
+				x79 = x79 - 1;
+				x80 = x80 + 1;
+				x81 = x81 - 4;
+				while (x79 == 0) {
+					if (x83 <= 2) then {
+						while (x84 == 0) {
+							call blockFlow;
+						}
+					} else {
+						x86 = x80 + 2;
+					}
+					call blockFlow;
+					y = z * 2;
+					if (x88 == 9) then {
+						x88 = 99;
+					} else {
+						x90 = y;
+					}
+				}
+			call blockFlow;
+			}
+			x91 = 2;
+		} else {
+			x90 = x90 + 2;
+			while (x92 >= 0) {
+				x90 = 2;
+			}
+			x94 = x92;
+		}
+	}
+}
+
+procedure blockFlow {
+	if (x95 == 0) then {
+		x79 = 2;
+	} else {
+		x95 = x80;
+		x100 = e + d;
+		e = 2 + w * 99;
+		d = x100 + d;
+	}
+	
+}

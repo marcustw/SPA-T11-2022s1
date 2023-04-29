@@ -1,0 +1,105 @@
+1 - =============================== Select v
+variable v; assign a; procedure p;
+Select v 
+x, y, z
+5000
+2 - =============================== Select a
+variable v; assign a; procedure p;
+Select a 
+1, 2, 3, 8
+5000
+3 - =============================== Select c
+constant c;
+Select c 
+0, 1, 2, 3, 4
+5000
+4 - =============================== Select Modifies lhs int
+variable v;
+Select v such that Modifies(1, v)
+x
+5000
+5 - =============================== Select Modifies lhs int, wildcard
+variable v;
+Select v such that Modifies(1, _)
+x, y, z
+5000
+6 - =============================== Select Modifies no common syn
+variable v; stmt s;
+Select v such that Modifies(s, _)
+x, y, z
+5000
+7 - =============================== Select Modifies common syn
+variable v; stmt s; assign a;
+Select a such that Modifies(a, "x")
+1
+5000
+8 - =============================== Select Modifies common syn a, wildcard
+variable v; stmt s; assign a;
+Select a such that Modifies(a, _)
+1, 2, 3, 8
+5000
+9 - =============================== Select Modifies common syn s, wildcard
+variable v; stmt s; assign a;
+Select s such that Modifies(s, _)
+1, 2, 3, 4, 6, 7, 8
+5000
+10 - ============================== Select read
+read re;
+Select re
+4, 6
+5000
+11 - ============================== Select print
+print p;
+Select p
+5
+5000
+11 - ============================== Select read modifies
+read re;
+Select re such that Modifies(re, "x")
+4
+5000
+12 - ============================== Select read modifies, wildcard
+read re;
+Select re such that Modifies(re, _)
+4, 6
+5000
+13 - ============================== Select read modifies, v
+read re; variable v;
+Select re such that Modifies(re, v)
+4, 6
+5000
+14 - ============================== Select modifies y
+stmt s; variable v;
+Select s such that Modifies(s, "y")
+2, 6, 7, 8
+5000
+15 - ============================== Select modifies "y" + pattern (wc, wc)
+stmt s; variable v; assign a;
+Select s such that Modifies(s, "y") pattern a(_, _)
+2, 6, 7, 8
+5000
+16 - ============================== Select modifies "y" + pattern ("y", wc)
+stmt s; variable v; assign a;
+Select s such that Modifies(s, "y") pattern a("y", _)
+2, 6, 7, 8
+5000
+17 - ============================== Select modifies "y" + pattern (v, wc)
+stmt s; variable v; assign a;
+Select s such that Modifies(s, "y") pattern a(v, _)
+2, 6, 7, 8
+5000
+18 - ============================== Select modifies a + pattern (v, wc)
+stmt s; variable v; assign a;
+Select a such that Modifies(a, "y") pattern a(v, _)
+2, 8
+5000
+19 - ============================== Select modifies(s, _) invalid s
+stmt s; variable v;
+Select v such that Modifies(5, v)
+none
+5000
+20 - ============================== Select modifies(print, _)
+print p;
+Select p such that Modifies(p, _)
+none
+5000

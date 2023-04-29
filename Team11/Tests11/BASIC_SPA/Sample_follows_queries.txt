@@ -1,0 +1,140 @@
+1 - follows double var
+stmt s, s1;
+Select s such that Follows(s, s1)
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 16, 17, 19, 21
+5000
+2 - follows var wildcard
+stmt s, s1;
+Select s such that Follows(s, _)
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 16, 17, 19, 21
+5000
+3 - follows double var
+stmt s, s1;
+Select s1 such that Follows(s, s1)
+2, 4, 6, 7, 8, 10, 11, 13, 14, 15, 17, 18, 20, 21, 22
+5000
+4 - follows var wildcard
+stmt s, s1;
+Select s1 such that Follows(_, s1)
+2, 4, 6, 7, 8, 10, 11, 13, 14, 15, 17, 18, 20, 21, 22
+5000
+5 - follows var int
+stmt s;
+Select s such that Follows(s, 2)
+1
+5000
+6 - follows var int none
+stmt s;
+Select s such that Follows(s, 1)
+none
+5000
+7 - follows var int
+stmt s;
+Select s such that Follows(1, s)
+2
+5000
+8 - follows double int
+stmt s;
+Select s such that Follows(1, 2)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+9 - follows double int none
+stmt s;
+Select s such that Follows(1, 1)
+none
+5000
+10 - follows double var same none
+stmt s;
+Select s such that Follows(s, s)
+none
+5000
+11 - follows int wildcard
+stmt s;
+Select s such that Follows(1, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+12 - follows wildcard int
+stmt s;
+Select s such that Follows(_, 2)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+13 - follows double wildcard
+stmt s;
+Select s such that Follows(_, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+14 - followsT double var
+stmt s, s1;
+Select s such that Follows*(s, s1)
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 16, 17, 19, 21
+5000
+15 - followsT var wildcard
+stmt s, s1;
+Select s such that Follows*(s, _)
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 14, 16, 17, 19, 21
+5000
+16 - followsT double var
+stmt s, s1;
+Select s1 such that Follows*(s, s1)
+2, 4, 6, 7, 8, 10, 11, 13, 14, 15, 17, 18, 20, 21, 22
+5000
+17 - followsT var wildcard
+stmt s, s1;
+Select s1 such that Follows*(_, s1)
+2, 4, 6, 7, 8, 10, 11, 13, 14, 15, 17, 18, 20, 21, 22
+5000
+18 - followsT var int
+stmt s;
+Select s such that Follows*(s, 2)
+1
+5000
+19 - followsT var int none
+stmt s;
+Select s such that Follows*(s, 1)
+none
+5000
+20 - followsT var int
+stmt s;
+Select s such that Follows*(1, s)
+2, 21, 22
+5000
+21 - followsT double int
+stmt s;
+Select s such that Follows*(1, 2)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+22 - followsT double int none
+stmt s;
+Select s such that Follows*(1, 1)
+none
+5000
+23 - followsT double var same none
+stmt s;
+Select s such that Follows*(s, s)
+none
+5000
+24 - followsT int wildcard
+stmt s;
+Select s such that Follows*(1, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+25 - followsT wildcard int
+stmt s;
+Select s such that Follows*(_, 2)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+26 - followsT double wildcard
+stmt s;
+Select s such that Follows*(_, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
+5000
+27 - follows double int same
+stmt s;
+Select s such that Follows(1, 1)
+none
+5000
+28 - followsT double int same
+stmt s;
+Select s such that Follows*(1, 1)
+none
+5000

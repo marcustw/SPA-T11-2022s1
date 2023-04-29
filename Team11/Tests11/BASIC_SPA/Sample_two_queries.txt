@@ -1,0 +1,85 @@
+1 - 0 such-that, 0 pattern, Select all procedures
+procedure p;
+Select p
+main, readPoint, printResults, computeCentroid
+5000
+2 - 0 rel, 0 pattern, Select all variables
+variable v;
+Select v
+flag, count, cenX, cenY, x, y, normSq
+5000
+3 - 1 rel Follows*, 0 pattern, Select all stmts
+stmt s;
+Select s such that Follows* (6, s)
+7, 8, 9
+5000
+4 - 1 rel Modifies, 0 pattern, Select all v
+variable v;
+Select v such that Modifies (15, v)
+count
+5000
+5 - 1 rel Uses, 0 pattern, select all v
+variable v;
+Select v such that Uses (23, v)
+cenX, cenY
+5000
+6 - 1 rel ModifiesP, 0 pattern, select p
+variable v; procedure p;
+Select p such that  Modifies (p, "x")
+main, computeCentroid, readPoint
+5000
+7 - 1 rel Parent*, 0 pattern, select a
+assign a; while w;
+Select a such that Parent* (w, a)
+15, 16, 17
+5000
+8 - 1 rel Parent, 0 pattern, select s
+stmt s;
+Select s such that Parent (s, 16)
+14
+5000
+9 - 0 rel, 1 pattern a (_, FULL)
+assign a;
+Select a pattern a ( _ , "count + 1")
+15
+5000
+10 - 0 rel, 1 pattern a (IDENT, PARTIAL)
+assign a;
+Select a pattern a ( "normSq" , _"cenX * cenX"_)
+23
+5000
+10 - b - 0 rel, 1 pattern a (IDENT, PARTIAL)
+assign newa;
+Select newa pattern newa ( "normSq" , _"cenX * cenX"_)
+23
+5000
+11 - 1 rel Parent*, 1 pattern a (IDENT, WILDCARD)
+assign a; while w;
+Select w such that Parent* (w, a) pattern a ("count", _)
+14
+5000
+12 - 1 rel Uses, 1 pattern a (SYN, WILDCARD)
+assign a; variable v;
+Select a such that Uses (a, v) pattern a (v, _)
+15, 16, 17, 21, 22
+5000
+13 - 1 rel Uses, 1 pattern a (IDENT, WILDCARD)
+assign a;
+Select a pattern a ("x", _) such that Uses (a, "x")
+none
+5000
+13 - b - 1 rel Uses, 1 pattern a (IDENT, WILDCARD) - ordering
+assign a;
+Select a such that Uses (a, "x") pattern a ("x", _)
+none
+5000
+14 - 1 rel Parent*, 1 pattern a (IDENT, WILDCARD)
+assign a; while w;
+Select a such that Parent* (w, a) pattern a ("count", _)
+15
+5000
+14 - b - 1 rel Parent*, 1 pattern a (IDENT, WILDCARD)
+assign a; while w;
+Select a pattern a ("count", _) such that Parent* (w, a)
+15
+5000

@@ -1,0 +1,155 @@
+1 - select stmts with
+stmt s; variable v;
+Select s with s.stmt# = 1
+1
+5000
+2 - select stmts with
+stmt s; variable v;
+Select s with 1 = s.stmt#
+1
+5000
+3 - select stmts with
+stmt s; variable v;
+Select s with 1 = 1
+1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 6, 60, 61, 7, 8, 9
+5000
+4 - select stmts with
+stmt s; variable v;
+Select s with "x" = "x"
+1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 6, 60, 61, 7, 8, 9
+5000
+5 - select stmts with syntax error
+stmt s; variable v;
+Select s with "x" = "1"
+SyntaxError
+5000
+6 - select stmts with syntax error
+stmt s; variable v;
+Select s with "1" = "1"
+SyntaxError
+5000
+7 - select stmts with syntax error
+stmt s; variable v;
+Select s with "1" = "x"
+SyntaxError
+5000
+8 - select stmts with syntax error
+stmt s; variable v;
+Select s with v.varName = "1x"
+SyntaxError
+5000
+9 - select stmts with
+stmt s; variable v;
+Select s with v.varName = "x1"
+1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 6, 60, 61, 7, 8, 9
+5000
+10 - select v with
+stmt s; variable v;
+Select v with v.varName = "x1"
+x1
+5000
+11 - select stmts with semantic error only can check both NAME or VALUE
+stmt s; variable v;
+Select s with 1 = "x1"
+SemanticError
+5000
+12 - select stmts with semantic error only can check both NAME or VALUE
+stmt s; variable v;
+Select s with "x1" = 1
+SemanticError
+5000
+13 - select stmts with not equal
+stmt s; variable v;
+Select s with "x2" = "x1"
+none
+5000
+14 - select v with not equal
+stmt s; variable v;
+Select v with v.varName = "x20"
+none
+5000
+15 - select v with SyntaxError
+stmt s; variable v;
+Select s with s.stmt# = "2"
+SyntaxError
+5000
+16 - select v with SyntaxError
+stmt s; variable v; procedure p;
+Select s with p.procName = "2"
+SyntaxError
+5000
+17 - select v with SyntaxError
+stmt s; variable v; procedure p; call ca; read r; print pr; if if; while w; assign a;
+Select s with ca.procName = "2"
+SyntaxError
+5000
+18 - select v with SyntaxError
+stmt s; variable v; procedure p; call ca; read r; print pr; if if; while w; assign a; constant q;
+Select s with q.value = "2"
+SyntaxError
+5000
+19 - select const with
+stmt s; variable v; procedure p; call ca; read r; print pr; if if; while w; assign a; constant q;
+Select q with q.value = 9
+none
+5000
+20 - select const with
+constant q; stmt s;
+Select q with q.value = s.stmt#
+1, 2, 4, 5, 10
+5000
+21 - select call with
+constant q; stmt s; call ca;
+Select ca with ca.procName = "ThreeNestedWhileLoopTop"
+35, 60
+5000
+22 - select call with
+constant q; stmt s; call ca, ca2;
+Select ca2 with ca.procName = "ThreeNestedWhileLoopTop"
+35, 56, 60
+5000
+23 - select call with
+constant q; stmt s; call ca, ca2;
+Select ca with "ThreeNestedWhileLoopTop" = ca.procName
+35, 60
+5000
+24 - select procedure with
+constant q; stmt s; call ca, ca2; procedure p;
+Select p with "ThreeNestedWhileLoopTop" = p.procName
+ThreeNestedWhileLoopTop
+5000
+25 - select procedure with
+constant q; stmt s; call ca, ca2; procedure p;
+Select p with ca.procName = p.procName
+ThreeNestedWhileLoopTop, FourtNestedWhileLoopMid
+5000
+26 - select procedure with
+constant q; stmt s; call ca, ca2;
+Select p with ca.procName = p.procName
+SemanticError
+5000
+27 - select stmt# with
+constant q; stmt s; call ca, ca2; constant c; if if;
+Select s with s.stmt# = if.stmt#
+3, 7, 20, 25, 29, 49, 53
+5000
+28 - select if
+constant q; stmt s; call ca, ca2; constant c; if if;
+Select if
+3, 7, 20, 25, 29, 49, 53
+5000
+29 - select stmt# with
+constant q; stmt s; call ca, ca2; constant c; if if; while w;
+Select s with s.stmt# = w.stmt#
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+30 - select w
+constant q; stmt s; call ca, ca2; constant c; if if; while w;
+Select w
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+31 - select s with
+constant q; stmt s; call ca, ca2; constant c; if if; while w;
+Select s with w.stmt# = if.stmt#
+none
+5000

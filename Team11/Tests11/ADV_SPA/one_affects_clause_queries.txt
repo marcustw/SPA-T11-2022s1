@@ -1,0 +1,335 @@
+1 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(5,6)
+FALSE
+5000
+2 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(5,9)
+TRUE
+5000
+3 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(7,11)
+TRUE
+5000
+4 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(7,13)
+TRUE
+5000
+5 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(12,9)
+FALSE
+5000
+6 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(12,14)
+FALSE
+5000
+7 - select boolean - valid affects clause
+
+Select BOOLEAN such that Affects(9,9)
+TRUE
+5000
+8 - select boolean - valid affects clause - not in proc call
+
+Select BOOLEAN such that Affects(21,23)
+TRUE
+5000
+9 - select boolean - valid affects clause in proc call
+
+Select BOOLEAN such that Affects(19,23)
+FALSE
+5000
+10 - select boolean - valid affects clause - not in proc call
+
+Select BOOLEAN such that Affects(20,23)
+FALSE
+5000
+10 - select boolean - valid affects clause - if container
+
+Select BOOLEAN such that Affects(25,29)
+TRUE
+5000
+11 - valid affects syn lhs
+stmt s;
+Select s such that Affects(s, 13)
+4, 7, 11, 12
+5000
+12 - valid affects syn rhs - if conditional
+stmt s;
+Select s such that Affects(5, s)
+9
+5000
+13 - invalid affects re lhs
+read re;
+Select re such that Affects(re, 3)
+none
+5000
+14 - invalid affects with re rhs
+read re;
+Select re such that Affects(1, re)
+none
+5000
+15 - invalid affects with pr lhs
+print pr;
+Select pr such that Affects(pr,2)
+none
+5000
+16 - valid affects with pr rhs
+print pr;
+Select pr such that Affects(17,pr)
+none
+5000
+17 - valid affects - if container
+
+Select BOOLEAN such that Affects(32, 33)
+FALSE
+5000
+18 - valid affects syn lhs
+assign a;
+Select a such that Affects(a, 13)
+4, 7, 11, 12
+5000
+19 - valid affects syn rhs - if conditional
+assign a;
+Select a such that Affects(5, a)
+9
+5000
+20 - invalid affects - proc syn
+procedure proc;
+Select proc such that Affects(proc, 4)
+SemanticError
+5000
+21 - invalid affects - proc syn
+procedure proc;
+Select proc such that Affects(2, proc)
+SemanticError
+5000
+22 - invalid affects - lhs non modifies but still stmt
+while w; 
+Select w such that Affects(w, 4)
+none
+5000
+23 - invalid affects - rhs non modifies but still stmt
+while w; 
+Select w such that Affects(4, w)
+none
+5000
+24 - valid affects - no control flow
+
+Select BOOLEAN such that Affects(36, 36)
+FALSE
+5000
+25 - valid affects - non assign stmt
+
+Select BOOLEAN such that Affects(45, 48)
+FALSE
+5000
+26 - valid affects - non assign stmt
+
+Select BOOLEAN such that Affects(51, 51)
+TRUE
+5000
+27 - valid affects - call block flow
+
+Select BOOLEAN such that Affects(53, 53) 
+FALSE
+5000
+28 - valid affects - within while loop
+
+Select BOOLEAN such that Affects(54, 50) 
+FALSE
+5000
+29 - valid affects - modified in ln 50
+
+Select BOOLEAN such that Affects(54, 54) 
+TRUE
+5000
+30 - valid affects - while stmt but not assign
+
+Select BOOLEAN such that Affects(54, 49) 
+FALSE
+5000
+31 - invalid affects lhs
+stmt s;
+Select s such that Affects("First", s)
+SyntaxError
+5000
+32 - invalid affects rhs
+stmt s;
+Select s such that Affects(s, "Third")
+SyntaxError
+5000
+33 - valid affects - wildcard rhs - non assign stmt
+
+Select BOOLEAN such that Affects(3,_)
+FALSE
+5000
+34 - valid affects - wildcard rhs - non assign stmt
+
+Select BOOLEAN such that Affects(1,_)
+FALSE
+5000
+35 - valid affects - non assign stmt
+stmt s;
+Select s such that Affects(1,s)
+none
+5000
+36 - valid affects -  stmt
+stmt s;
+Select s such that Affects(4,s)
+11, 7, 13, 15
+5000
+37 - valid affects - assign stmt
+assign a;
+Select a such that Affects(4,a)
+11, 7, 13, 15
+5000
+38 - valid affects - single affect - non assignemtn stmt
+assign a;
+Select a such that Affects(55,a)
+none
+5000
+39 - valid affects - single affect - ln 63 breaks
+assign a;
+Select a such that Affects(58,a)
+none
+5000
+40 - valid affects - single affect - x60
+assign a;
+Select a such that Affects(a, 67)
+none
+5000
+41 - valid affects - single affect - x60
+stmt s;
+Select s such that Affects(s, 67)
+none
+5000
+42 - valid affects - single affect - 2 paths
+stmt s;
+Select s such that Affects(s, 71)
+69, 70
+5000
+43 - valid affects - within while loop, while stmt not modified
+
+Select BOOLEAN such that Affects(81, 81)
+TRUE
+5000
+44 - valid affects - within while loop, ln 85 blocks
+
+Select BOOLEAN such that Affects(80, 80)
+FALSE
+5000
+45 - valid affects - within else block
+stmt s;
+Select s such that Affects(92, 95)
+1, 10, 100, 101, 102, 103, 104, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 5, 50 , 51, 52, 53, 54, 55, 56, 57, 58, 59, 6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 7, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 8, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 9, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99
+5000
+46 - valid affects - within else block
+stmt s;
+Select s such that Affects(92, 96)
+none
+5000
+46 - valid affects - err
+assign a1, a2;
+Select a such that Affects(a1, a2)
+SemanticError
+5000
+47 - valid affects - affector
+assign a1, a2;
+Select a1 such that Affects(a1, a2)
+102, 11, 12, 13, 14, 16, 20, 21, 24, 25, 27, 4, 5, 51, 54, 69, 7, 70, 71, 81, 82, 89, 9, 92, 95, 97
+5000
+48 - valid affects - affected
+assign a1, a2;
+Select a2 such that Affects(a1, a2)
+104, 11, 13, 14, 15, 17, 21, 23, 27, 28, 29, 51, 54, 7, 71, 73, 81, 82, 87, 9, 92, 95
+5000
+49 - valid affects - affecting each other
+assign a1, a2;
+Select <a1, a2> such that Affects(a1, a2)
+102 104, 11 13, 11 15, 12 13, 13 14, 13 15, 14 15, 16 17, 20 21, 21 23, 24 27, 24 28, 25 29, 27 29, 4 11, 4 13, 4 15, 4 7, 5 9, 51 51, 54 54, 69 71, 7 11, 7 13, 7 15, 7 7, 70 71, 71 73, 81 81, 81 87, 82 82, 89 92, 9 9, 92 95, 95 95, 97 95
+5000
+50 - valid affects - affecting each other, tuple lhs
+assign a1, a2;
+Select <a1.stmt#, a2> such that Affects(a1, a2)
+102 104, 11 13, 11 15, 12 13, 13 14, 13 15, 14 15, 16 17, 20 21, 21 23, 24 27, 24 28, 25 29, 27 29, 4 11, 4 13, 4 15, 4 7, 5 9, 51 51, 54 54, 69 71, 7 11, 7 13, 7 15, 7 7, 70 71, 71 73, 81 81, 81 87, 82 82, 89 92, 9 9, 92 95, 95 95, 97 95
+5000
+51 - valid affects - affecting each other, tuple rhs
+assign a1, a2;
+Select <a1, a2.stmt#> such that Affects(a1, a2)
+102 104, 11 13, 11 15, 12 13, 13 14, 13 15, 14 15, 16 17, 20 21, 21 23, 24 27, 24 28, 25 29, 27 29, 4 11, 4 13, 4 15, 4 7, 5 9, 51 51, 54 54, 69 71, 7 11, 7 13, 7 15, 7 7, 70 71, 71 73, 81 81, 81 87, 82 82, 89 92, 9 9, 92 95, 95 95, 97 95
+5000
+52 - valid affects - affecting each other, tuple both
+assign a1, a2;
+Select <a1.stmt#, a2.stmt#> such that Affects(a1, a2)
+102 104, 11 13, 11 15, 12 13, 13 14, 13 15, 14 15, 16 17, 20 21, 21 23, 24 27, 24 28, 25 29, 27 29, 4 11, 4 13, 4 15, 4 7, 5 9, 51 51, 54 54, 69 71, 7 11, 7 13, 7 15, 7 7, 70 71, 71 73, 81 81, 81 87, 82 82, 89 92, 9 9, 92 95, 95 95, 97 95
+5000
+53 - valid affects - same syn - with clause
+assign a1, a2;
+Select <a1.stmt#, a2.stmt#> such that Affects(a1, a2) with a1.stmt# = a2.stmt#
+51 51, 54 54, 7 7, 81 81, 82 82, 9 9, 95 95
+5000
+54 - valid affects - same syn - with clause
+assign a1, a2;
+Select a1 such that Affects(a1, a2) with a1.stmt# = 95
+95
+5000
+55 - valid affects - same syn - with clause
+assign a1, a2;
+Select a1 such that Affects(a1, a2) with a2.stmt# = 95
+92, 95, 97
+5000
+56 - valid affects - syn wc
+assign a;
+Select a such that Affects(a,_)
+102, 11, 12, 13, 14, 16, 20, 21, 24, 25, 27, 4, 5, 51, 54, 69, 7, 70, 71, 81, 82, 89, 9, 92, 95, 97
+5000
+57 - valid affects - wc wc
+
+Select BOOLEAN such that Affects(_,_)
+TRUE
+5000
+58 - valid affects - wc syn
+assign a;
+Select a such that Affects(_, a)
+104, 11, 13, 14, 15, 17, 21, 23, 27, 28, 29, 51, 54, 7, 71, 73, 81, 82, 87, 9, 92, 95
+5000
+59 - valid affects - wc int
+
+Select BOOLEAN such that Affects(_,14)
+TRUE
+5000
+60 - valid affects - int wc
+
+Select BOOLEAN such that Affects(4,_)
+TRUE
+5000
+61 - valid affects - non assign stmt rhs
+read re;
+Select re such that Affects(_, re)
+none
+5000
+62 - valid affects - wrong var rhs
+variable v;
+Select re such that Affects(_, v)
+SemanticError
+5000
+63 - valid affects - non assign stmt rhs
+print pr;
+Select pr such that Affects(pr, _)
+none
+5000
+64 - valid affects - wrong var lhs
+variable v;
+Select re such that Affects(v, _)
+SemanticError
+5000
+65 - valid affects - non asssign stmt
+assign a;
+Select a such that Affects(3, a)
+none
+5000

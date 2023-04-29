@@ -1,0 +1,30 @@
+procedure main {
+ 	a = 2;
+while (n > 3) {
+	Z = 4;
+  	while (a < 2) {
+  		y = 100; 
+  		Z = 6;
+		x = 5;
+	}
+	if (a < 2) then {
+  		z = 100; 
+  		Z = 6;
+		x = 5;
+	} else {
+		meep = 4;
+		meepeth = 5;
+	}
+	read x;
+	if (a < 2) then {
+  		y = 100; 
+  		Z = 6;
+		x = 5;
+	} else {
+		meep = 4;
+		meepeth = 5;
+	}
+}
+print v;
+v = 10;
+}

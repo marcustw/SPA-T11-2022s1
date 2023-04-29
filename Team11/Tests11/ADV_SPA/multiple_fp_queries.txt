@@ -1,0 +1,96 @@
+1 - multi-clause follows none
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select s such that Follows(s , a) and Follows(a, pn) such that Follows(r1, pn1) and Follows(pn1, w)
+none
+5000
+2 - multi-clause follows
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select s such that Follows(s , a) and Follows(a, if) such that Follows(r1, pn1) and Follows(pn1, w)
+2
+5000
+3 - multi-clause follows
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select r1 such that Follows(s , a) and Follows(a, if) such that Follows(r1, pn1) and Follows(pn1, w)
+30
+5000
+4 - multi-clause followsT
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select s such that Follows*(s , a) and Follows*(a, if) such that Follows*(r1, pn1) and Follows*(pn1, w)
+1, 2
+5000
+5 - multi-clause followsT
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select r1 such that Follows*(s , a) and Follows*(a, if) such that Follows*(r1, pn1) and Follows*(pn1, w)
+30
+5000
+6 - multi-clause follows
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select s2 such that Follows(1 , s) and Follows(s, s1) such that Follows(s1, s2) and Follows(s2, s3)
+4
+5000
+7 - multi-clause follows
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select s3 such that Follows(1 , s) and Follows(s, s1) such that Follows(s1, s2) and Follows(s2, s3)
+8
+5000
+8 - multi-clause follows
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select <s, a, if, w> such that Follows(1 , s) and Follows(s, a) such that Follows(a, if) and Follows(if, w)
+2 3 4 8
+5000
+9 - multi-clause followsT
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w;
+Select <s, a, if, w> such that Follows*(1 , s) and Follows*(s, a) such that Follows*(a, if) and Follows*(if, w)
+2 3 4 8
+5000
+10 - multi-clause parent
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent(s, s1) and Parent(s1, s2) and Parent(s2, s3) and Parent(s3, s4)
+24, 26, 28
+5000
+11 - multi-clause parent
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s2 such that Parent(s, s1) and Parent(s1, s2) and Parent(s2, s3) and Parent(s3, s4)
+28, 29, 32
+5000
+12 - multi-clause parent no answer
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent(a, s1) and Parent(s1, s2) and Parent(s2, s3) and Parent(s3, s4)
+none
+5000
+13 - multi-clause parent no answer Syntax and Semantic
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent(s, "s1") and Parent("s1", s2) and Parent(s2, s3) and Parent(s3, s4)
+SyntaxError
+5000
+14 - multi-clause parent no answer Semantic
+stmt s, s1, s2, s3; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent(s, s1) and Parent(s1, s2) and Parent(s2, s3) and Parent(s3, s4)
+SemanticError
+5000
+15 - multi-clause parent 6 parents
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent(s, s1) and Parent(s1, s2) and Parent(s2, s3) and Parent(s3, w) and Parent(w, if) and Parent(if, s4)
+24
+5000
+16 - multi-clause parentT 6 parents
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s such that Parent*(s, s1) and Parent*(s1, s2) and Parent*(s2, s3) and Parent*(s3, w) and Parent*(w, if) and Parent*(if, s4)
+24
+5000
+17 - multi-clause parentT 6 parents
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s2 such that Parent*(w, w1) and Parent*(w1, w2) and Parent*(w2, w3) and Parent*(w3, s) and Parent*(s, s1) and Parent*(s1, s2)
+34, 35, 36
+5000
+18 - multi-clause parentT
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s2 such that Parent*(w, w1) and Parent*(w1, s) and Parent(w2, if) and Parent(if, s2)
+11, 12, 13, 34, 35, 36
+5000
+19 - multi-clause follows parent
+stmt s, s1, s2, s3, s4; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1; if if; while w, w1, w2, w3;
+Select s1 such that Parent*(w, a) and Follows(a, w1) and Parent(w1, a1) and Follows(a1, w2) and Parent(w2, w3) and Parent(w3, r) and Follows*(r, s) and Parent(s, if) and Parent*(if, s1)
+34, 35, 36
+5000
+

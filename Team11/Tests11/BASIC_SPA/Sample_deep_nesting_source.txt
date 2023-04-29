@@ -1,0 +1,23 @@
+procedure deepNesting {
+    while (a < b) {
+		if (c >0) then {
+			while(d >= 0){
+				e = 2 + c;
+				d = d - 1;
+				while (f >= 0) {
+					print d;
+					if (b > c) then {
+						print b;
+					} else {
+						print g;
+					}
+					d = d - e;
+				}
+				f = f + a;
+			}
+			a = a - 1;
+		} else {
+			b = b*2;
+		}
+	}
+}

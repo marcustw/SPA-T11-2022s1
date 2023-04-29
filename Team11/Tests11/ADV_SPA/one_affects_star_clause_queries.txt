@@ -1,0 +1,210 @@
+1 -  valid affects star - lhs assign
+assign a;
+Select a such that Affects* (a, 13)
+4, 5, 7, 9, 11, 12
+5000
+2 -  valid affects star - affectr
+assign a, a1;
+Select a such that Affects* (a, a1)
+102, 11, 12, 13, 14, 16, 20, 21, 24, 25, 27, 4, 5, 51, 54, 69, 7, 70, 71, 81, 82, 89, 9, 92, 95, 97
+5000
+3 -  valid affects star - affected
+assign a, a1;
+Select a1 such that Affects* (a, a1)
+104, 11, 13, 14, 15, 17, 21, 23, 27, 28, 29, 51, 54, 7, 71, 73, 81, 82, 87, 9, 92, 95
+5000
+4 -  valid affects star - affecting each other
+assign a, a1;
+Select <a, a1> such that Affects* (a, a1)
+102 104, 11 13, 11 14, 11 15, 12 13, 12 14, 12 15, 13 14, 13 15, 14 15, 16 17, 20 21, 20 23, 21 23, 24 27, 24 28, 24 29, 25 29, 27 29, 4 11, 4 13, 4 14, 4 15, 4 7, 5 13, 5 14, 5 15, 5 9, 51 51, 54 54, 69 71, 69 73, 7 11, 7 13, 7 14, 7 15, 7 7, 70 71, 70 73, 71 73, 81 81, 81 87, 82 82, 89 92, 89 95, 9 13, 9 14, 9 15, 9 9, 92 95, 95 95, 97 95
+5000
+5 -  valid affects star - with clause
+assign a, a1;
+Select <a, a1> such that Affects* (a, a1) with a.stmt# = a1.stmt#
+51 51, 54 54, 7 7, 81 81, 82 82, 9 9, 95 95
+5000
+6 - valid affects star - multiple syn
+assign a, a1, a2;
+Select a2 such that Affects* (a, a1) and Affects*(a, a2)
+104, 11, 13, 14, 15, 17, 21, 23, 27, 28, 29, 51, 54, 7, 71, 73, 81, 82, 87, 9, 92, 95
+5000
+7 - valid affects star - int int - while stmt
+
+Select BOOLEAN such that Affects*(90, 90)
+FALSE
+5000
+8 - valid affects star - int int - if stmt
+
+Select BOOLEAN such that Affects*(11, 15)
+TRUE
+5000
+9 - valid affects star - syn int
+assign a;
+Select a such that Affects*(11, a)
+13, 14, 15
+5000
+10 - valid affects star - syn int - stmt
+stmt s;
+Select s such that Affects*(11, s)
+13, 14, 15
+5000
+11 - valid affects star - int syn 
+stmt s;
+Select a such that Affects*(a, 15)
+SemanticError
+5000
+12 - valid affects star - int syn - stmt
+stmt s;
+Select s such that Affects*(s, 15)
+11, 12, 13, 14, 4, 5, 7, 9
+5000
+13 - valid affects star - int wc
+
+Select BOOLEAN such that Affects*(24,_)
+TRUE
+5000
+14 - valid affects star - wc int
+
+Select BOOLEAN such that Affects*(_,73)
+TRUE
+5000
+15 - valid affects star - wc int - if stmt
+
+Select BOOLEAN such that Affects*(_, 72)
+FALSE
+5000
+16 - valid affects star - wc wc
+
+Select BOOLEAN such that Affects*(_,_)
+TRUE
+5000
+17 - valid affects star - wc syn 
+assign a;
+Select a such that Affects*(_, a)
+104, 11, 13, 14, 15, 17, 21, 23, 27, 28, 29, 51, 54, 7, 71, 73, 81, 82, 87, 9, 92, 95
+5000
+18 - valid affects star - syn wc
+assign a;
+Select a such that Affects*(a,_)
+102, 11, 12, 13, 14, 16, 20, 21, 24, 25, 27, 4, 5, 51, 54, 69, 7, 70, 71, 81, 82, 89, 9, 92, 95, 97
+5000
+19 - valid affects star - syntax err
+
+Select BOOLEAN such that Affects**(72, 72)
+SyntaxError
+5000
+20 - valid affects star - oob err
+
+Select BOOLEAN such that Affects*(102, 105)
+FALSE
+5000
+21 - valid affects star - int syn 
+assign a;
+Select a such that Affects*(a, 15)
+11, 12, 13, 14, 5, 7, 4, 9
+5000
+22 - valid affects star - int syn
+assign a;
+Select a such that Affects*(24,a)
+27, 28, 29
+5000
+23 - valid affects star - syn int
+assign a;
+Select a such that Affects*(a, 73)
+69, 70, 71
+5000
+24 - valid affects star - no rs
+assign a;
+Select a such that Affects*(a, 1)
+none
+5000
+25 - valid affects star - last stmt
+assign a;
+Select a such that Affects*(104, a)
+none
+5000
+26 - valid affects star - oob err rhs
+assign a;
+Select a such that Affects*(a, 105)
+none
+5000
+27 - valid affects star - oob err rhs
+assign a;
+Select a such that Affects*(0, a)
+none
+5000
+27 - valid affects star - oob err rhs
+
+Select BOOLEAN such that Affects*(0, _)
+FALSE
+5000
+28 - invalid affects with pr lhs
+print pr;
+Select pr such that Affects*(pr,2)
+none
+5000
+29 - valid affects with pr rhs
+print pr;
+Select pr such that Affects*(17,pr)
+none
+5000
+30 - valid affects - if container
+
+Select BOOLEAN such that Affects*(32, 33)
+FALSE
+5000
+31 - invalid affects lhs
+stmt s;
+Select s such that Affects*("First", s)
+SyntaxError
+5000
+32 - invalid affects rhs
+stmt s;
+Select s such that Affects*(s, "multipleWhile")
+SyntaxError
+5000
+33 - valid affects star - non assign stmt rhs
+read re;
+Select re such that Affects*(_, re)
+none
+5000
+34 - valid affects star - wrong var rhs
+variable v;
+Select re such that Affects*(_, v)
+SemanticError
+5000
+35 - valid affects star - non assign stmt rhs
+print pr;
+Select pr such that Affects*(pr, _)
+none
+5000
+36 - valid affects star- wrong var lhs
+variable v;
+Select re such that Affects*(v, _)
+SemanticError
+5000
+37 - valid affects star - wildcard rhs - non assign stmt
+
+Select BOOLEAN such that Affects*(3,_)
+FALSE
+5000
+38 - valid affects star - wildcard rhs - non assign stmt
+
+Select BOOLEAN such that Affects*(_,1)
+FALSE
+5000
+39 - valid affects star - wildcard rhs - non assign stmt
+
+Select BOOLEAN such that Affects*(4,_)
+TRUE
+5000
+40 - valid affects star - wildcard rhs - non assign stmt
+assign a;	
+Select a such that Affects*(3,a)
+none
+5000
+12 - valid affects star - int syn - assign
+assign a;
+Select a such that Affects*(a, 15)
+11, 12, 13, 14, 4, 5, 7, 9
+5000

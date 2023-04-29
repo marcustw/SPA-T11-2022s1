@@ -1,0 +1,85 @@
+1 - select p
+stmt s1; variable v; procedure p;
+Select p
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+2 - select modifies p
+stmt s1; variable v; procedure p;
+Select p such that Modifies(p, v)
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+3 - select modifies p
+stmt s1; variable v; procedure p;
+Select p such that Modifies(p, _)
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+4 - select if
+stmt s1; variable v; procedure p; if i;
+Select i such that Modifies(p, _)
+3, 7, 20, 25, 29, 49, 53
+5000
+5 - select if
+stmt s1; variable v; procedure p; if i;
+Select i such that Modifies(p, "not")
+
+5000
+6 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "end")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+7 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "x5")
+FiveNestedWhileLoopAtBot
+5000
+8 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "x1")
+FourtNestedWhileLoopMid, FiveNestedWhileLoopAtBot
+5000
+8 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "x3")
+FourtNestedWhileLoopMid, FiveNestedWhileLoopAtBot
+5000
+9 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "y")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid
+5000
+10 - select modifies p
+stmt s1; variable v; procedure p; if i;
+Select p such that Modifies(p, "x")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid
+5000
+11 - select modifies p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Modifies(c, "x")
+56
+5000
+12 - select modifies p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Modifies(c, "x3")
+56
+5000
+13 - select modifies p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Modifies(c, _)
+35, 56, 60
+5000
+14 - select c
+stmt s1; variable v; procedure p; if i; call c;
+Select c
+35, 56, 60
+5000
+15 - select c modifies p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Modifies(c, "not")
+
+5000
+16 - select tuple modifies
+procedure p; variable v;
+Select <p.procName, v.varName> such that Modifies(p, v)
+ThreeNestedWhileLoopTop nestedWhiles, ThreeNestedWhileLoopTop end, ThreeNestedWhileLoopTop c, ThreeNestedWhileLoopTop nestedWhileLoopAtMid, FiveNestedWhileLoopAtBot d, ThreeNestedWhileLoopTop nested, FourtNestedWhileLoopMid y, ThreeNestedWhileLoopTop nestedWhileLoopAtTop, ThreeNestedWhileLoopTop nestedAllAtTop, ThreeNestedWhileLoopTop d, FourtNestedWhileLoopMid x, ThreeNestedWhileLoopTop someMoreStuff, FourtNestedWhileLoopMid nestedWhileLoopAtMid, FourtNestedWhileLoopMid c, FourtNestedWhileLoopMid end, FourtNestedWhileLoopMid nested, FiveNestedWhileLoopAtBot y, FourtNestedWhileLoopMid x1, FourtNestedWhileLoopMid nestedAllAtTop, FourtNestedWhileLoopMid x2, FourtNestedWhileLoopMid roger, FourtNestedWhileLoopMid d, FourtNestedWhileLoopMid nestedWhiles, FourtNestedWhileLoopMid nestedWhileLoopAtTop, FiveNestedWhileLoopAtBot nested, FourtNestedWhileLoopMid x3, FourtNestedWhileLoopMid someMoreStuff, FiveNestedWhileLoopAtBot c, FiveNestedWhileLoopAtBot nestedWhileLoopAtMid, FiveNestedWhileLoopAtBot x1, FiveNestedWhileLoopAtBot nestedWhileLoopAtBot, FiveNestedWhileLoopAtBot x4, FiveNestedWhileLoopAtBot x5, FiveNestedWhileLoopAtBot nestedAllAtTop, FiveNestedWhileLoopAtBot x2, FiveNestedWhileLoopAtBot nestedWhiles, FiveNestedWhileLoopAtBot roger, FiveNestedWhileLoopAtBot nestedWhileLoopAtTop, FiveNestedWhileLoopAtBot x, FiveNestedWhileLoopAtBot x3, FiveNestedWhileLoopAtBot end, FiveNestedWhileLoopAtBot someMoreStuff
+5000

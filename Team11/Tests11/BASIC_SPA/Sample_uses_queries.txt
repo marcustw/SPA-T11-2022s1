@@ -1,0 +1,50 @@
+1 - ========================= Select p
+variable v; assign a; procedure p;
+Select p 
+main
+5000
+2 - ========================= Select uses, lhs syn, common syn, right ident
+stmt s;
+Select s such that Uses(s, "x")
+2, 8
+5000
+3 - ========================= Select uses, lhs syn, common syn, right wildcard
+stmt s;
+Select s such that Uses(s, _)
+2, 4, 8, 10, 11, 12
+5000
+4 - ========================= Select uses, lhs syn, common syn, right syn
+stmt s; variable v;
+Select s such that Uses(s, v)
+2, 4, 8, 10, 11, 12
+5000
+5 - ========================= Select uses, lhs syn, uncommon syn, right syn
+stmt s; variable v;
+Select v such that Uses(s, v)
+a, n, x
+5000
+6 - ========================= Select uses, lhs int, common syn, right syn
+stmt s; variable v;
+Select v such that Uses(11, v)
+a
+5000
+7 - ========================= Select uses, lhs int, common syn, right syn
+stmt s; variable v;
+Select v such that Uses(9, v)
+none
+5000
+8 - ========================= Select all assigns
+assign a;
+Select a
+1, 3, 5, 6, 7, 8, 9, 11, 12
+5000
+9 - ========================= Select all while
+while w;
+Select w
+2, 4
+5000
+10 - ========================= Select all ifs
+if ifs;
+Select ifs
+10
+5000

@@ -1,0 +1,190 @@
+1 - select if
+if if; variable v;
+Select if
+4, 10, 34
+5000
+2 - if ident
+if if; variable v;
+Select if pattern if( "x9",_, _ )
+10
+5000
+3 - if var
+if if; variable v;
+Select if pattern if( v,_, _ )
+4, 10, 34
+5000
+4 - if var
+if if; variable v;
+Select v pattern if( v,_, _ )
+x3, x9, x22, x23, x31
+5000
+5 - if wildcard
+if if; variable v;
+Select if pattern if( _,_, _ )
+4, 10, 34
+5000
+6 - if invalid semantics
+if if; variable v;
+Select if pattern if( a,_, _ )
+SemanticError
+5000
+7 - if invalid syntax
+if if; variable v;
+Select if pattern if( v, v, _ )
+SyntaxError
+5000
+8 - if invalid syntax
+if if; variable v;
+Select if pattern if( v,_, v )
+SyntaxError
+5000
+9 - if invalid syntax
+if if; variable v;
+Select if pattern if( v,v, v )
+SyntaxError
+5000
+10 - if invalid semantics
+if if; variable v;
+Select if pattern v( v,_, _ )
+SemanticError
+5000
+11 - if invalid syntax
+if if; variable v;
+Select if pattern if( v,_, "_" )
+SyntaxError
+5000
+12 - if invalid syntax
+if if; variable v;
+Select if pattern if( v,"_", "_" )
+SyntaxError
+5000
+13 - if invalid syntax
+if if; variable v;
+Select if pattern if( v,"_", "_" )
+SyntaxError
+5000
+14 - if tuple
+if if; variable v;
+Select <if, v> pattern if( v,_, _ )
+4 x3, 10 x9, 34 x22, 34 x23, 34 x31
+5000
+15 - if invalid syntax
+if if; variable v;
+Select if pattern if( v, _ )
+SemanticError
+5000
+16 - select while
+while w; variable v;
+Select w
+8, 24, 26, 28, 30, 33
+5000
+17 - while ident
+while w; variable v;
+Select w pattern w( "x9",_ )
+none
+5000
+18 - while ident
+while w; variable v;
+Select w pattern w( "x6",_ )
+8
+5000
+19 - while var
+while w; variable v;
+Select w pattern w( v,_ )
+8, 24, 26, 28, 30, 33
+5000
+20 - while var
+while w; variable v;
+Select v pattern w( v,_ )
+x6, x22, x23, x31
+5000
+21 - while wildcard
+while w; variable v;
+Select w pattern w( _,_ )
+8, 24, 26, 28, 30, 33
+5000
+22 - while invalid syntax
+while w; variable v;
+Select w pattern w( "x9", v )
+SyntaxError
+5000
+23 - while invalid syntax
+while w; variable v;
+Select w pattern w( "x9","_" )
+SyntaxError
+5000
+24 - while invalid semantics, should be if
+while w; variable v;
+Select w pattern w( "x9",_, _ )
+SemanticError
+5000
+25 - while tuple
+while w; variable v;
+Select <w,v> pattern w( v,_ )
+8 x6, 24 x22, 24 x23, 26 x22, 28 x22, 28 x23, 30 x22, 30 x23, 33 x22, 33 x31
+5000
+26 - while and if
+while w; variable v; if if;
+Select <w,v,if> pattern w(v, _) pattern if(v,_,_)
+24 x22 34, 24 x23 34, 26 x22 34, 28 x22 34, 28 x23 34, 30 x22 34, 30 x23 34, 33 x22 34, 33 x31 34
+5000
+27 - invalid pattern w, semantic error
+while w; variable v; if if;
+Select w pattern w(v, _, _)
+SemanticError
+5000
+28 - invalid pattern if, semantic error
+while w; variable v; if if;
+Select if pattern if(v, _)
+SemanticError
+5000
+29 - invalid pattern w, SEMANTIC error, can be a
+while w; variable v; if if;
+Select w pattern w(v, "x+y")
+SemanticError
+5000
+29 - invalid pattern if, SEMANTIC error, can be a
+while w; variable v; if if;
+Select w pattern if(v, "x+y")
+SemanticError
+5000
+30 - invalid pattern if, syntax error
+while w; variable v; if if;
+Select if pattern if(v, _, "x+y")
+SyntaxError
+5000
+31 - invalid pattern a, semantic error
+assign a; variable v;
+Select a pattern a(v, _, _)
+SemanticError
+5000
+32 - invalid pattern a, syntax error
+assign a; variable v;
+Select a pattern a(v, _, "hello")
+SyntaxError
+5000
+33 - invalid pattern w, syntax error
+while w; variable v;
+Select w pattern w(v, _, "hello")
+SyntaxError
+5000
+34 - invalid pattern if, syntax error
+while w; variable v; if if;
+Select if pattern a(v, _)
+SemanticError
+5000
+35 - invalid multi-pattern, syntax error
+while w; variable v; if if;
+Select if pattern a(v, _) and w(v, _, "hi")
+SyntaxError
+5000
+36 - valid multi-pattern, invalid Rel syntax error from Follows
+while w; variable v; if if;
+Select if pattern a(v, _) and w(v, _) and if(v, _, _) such that Follows("s1", "s2")
+SyntaxError
+5000
+37 - valid pattern group 1, invalid pattern group 2
+while w; variable v; if if;
+Select if pattern a(v, _) and w(v, _) pattern if (v, _, _) and w(_, "_")
+SyntaxError
+5000

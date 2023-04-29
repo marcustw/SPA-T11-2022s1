@@ -1,0 +1,130 @@
+1 - select synonym - calls double wildcard
+procedure p, p1;
+Select p such that Calls(_,_)
+main, second, third, fourth
+5000
+2 - select synonym - calls single wildcard - syn lhs
+procedure p, p1;
+Select p such that Calls(_, p)
+second, third, fourth
+5000
+3 - select synonym - calls single wildcard - syn lhs
+procedure p, p1;
+Select p1 such that Calls(_, p)
+main, second, third, fourth
+5000
+4 - select synonym - calls single wildcard - syn rhs
+procedure p, p1;
+Select p such that Calls(p, _)
+main, third, fourth
+5000
+5 - select synonym - calls single wildcard- syn rhs
+procedure p, p1;
+Select p1 such that Calls(p, _)
+main, second, third, fourth
+5000
+6 - select synonym - calls single wildcard procedure - syn rhs
+procedure p, p1;
+Select p such that Calls(_, "main")
+none
+5000
+7 - select synonym - calls single wildcard procedure - syn rhs
+procedure p, p1;
+Select p such that Calls(_, "third")
+main, second, third, fourth
+5000
+8 - select synonym - calls single wildcard procedure - syn rhs
+procedure p, p1;
+Select p such that Calls(_, "fourth")
+main, second, third, fourth
+5000
+9 - select synonym - calls single wildcard procedure - syn rhs
+procedure p, p1;
+Select p such that Calls(_, "f0urth")
+none
+5000
+10 - select synonym - calls single wildcard procedure - syn lhs
+procedure p, p1;
+Select p such that Calls("main", _)
+main, second, third, fourth
+5000
+11 - select synonym - calls single wildcard procedure - syn lhs
+procedure p, p1;
+Select p such that Calls("third", _)
+main, second, third, fourth
+5000
+12 - select synonym - calls single wildcard procedure - syn lhs
+procedure p, p1;
+Select p such that Calls("second", _)
+none
+5000
+13 - select synonym - calls syn - procedure rhs
+procedure p, p1;
+Select p such that Calls(p, "main")
+none
+5000
+14 - select synonym - calls syn - procedure rhs
+procedure p, p1;
+Select p1 such that Calls(p1, "second")
+main, fourth
+5000
+15 - select synonym - calls syn - procedure lhs
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p such that Calls("main", p)
+second, third, fourth
+5000
+16 - select synonym - calls syn - procedure lhs
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p such that Calls("second", p)
+none
+5000
+17 - select synonym, calls double procedure - eval true
+procedure p, p1;
+Select p such that Calls("third", "fourth")
+main, second, third, fourth
+5000
+18 - select synonym, calls double procedure - eval false
+procedure p, p1;
+Select p such that Calls("fourth", "third")
+none
+5000
+19 - select synonym, calls double procedure - single invalid procedure
+procedure p, p1;
+Select p such that Calls("fourth", "sec0nd")
+none
+5000
+20 - select synonym, calls double procedure - double invalid procedure
+procedure p, p1;
+Select p such that Calls("f0urth", "FAKENEWS")
+none
+5000
+21 - select synonym, calls double syn
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p such that Calls(p, p1)
+main, third, fourth
+5000
+22 - select synonym, calls double syn
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p1 such that Calls(p, p1)
+second, third, fourth
+5000
+23 - select synonym, calls undeclared syn
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p1 such that Calls(t, p1)
+SemanticError
+5000
+24 - select synonym, calls undeclared syn
+procedure p, p1; assign a; stmt s; read r; if i; while w; call c; constant const;
+Select p such that Calls(p, t)
+SemanticError
+5000
+25 - select synonym - calls single wildcard - undeclared syn rhs
+procedure p, p1;
+Select p1 such that Calls(_, s)
+SemanticError
+5000
+26 - select synonym - calls single wildcard - undeclared syn lhs
+procedure p, p1;
+Select p1 such that Calls(s, _)
+SemanticError
+5000

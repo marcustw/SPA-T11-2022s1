@@ -1,0 +1,85 @@
+1 - pattern syntax error
+while w; 
+Select w pattrn w(_, _)
+SyntaxError
+5000
+2 - pattern semantic error
+while w; 
+Select w pattern while(_, _)
+SemanticError
+5000
+3 - pattern semantic error
+while w;
+Select w1 pattern w(_, _)
+SemanticError
+5000
+4 - pattern double wildcard
+while w;
+Select w pattern w(_, _)
+8, 17, 22, 27, 29, 31, 33, 36, 41
+5000
+5 - pattern synonym wildcard
+while w; variable v;
+Select w pattern w(v, _)
+8, 17, 22, 27, 29, 31, 33, 36, 41
+5000
+6 - while tuple
+while w; variable v;
+Select <w,v> pattern w(v,_ )
+8 x6, 17 x16, 22 x19, 27 x22, 27 x23, 29 x22, 31 x22, 31 x23, 33 x22, 33 x23, 36 x22, 36 x31, 41 x36
+5000
+7 - pattern synonym wildcard
+while w; variable v;
+Select v pattern w(v, _)
+x16, x19, x22, x23, x31, x36, x6
+5000
+8 - pattern nonexistent synonym wildcard
+while w;
+Select w pattern w(v, _)
+SemanticError
+5000
+9 - pattern nonexistent synonym wildcard
+while w; variable v;
+Select w pattern w(v1, _)
+SemanticError
+5000
+10 - pattern "IDENT" wildcard
+while w;
+Select w pattern w("x19", _)
+22
+5000
+11 - pattern "IDENT" wildcard
+while w;
+Select w pattern w("x23", _)
+27, 31, 33
+5000
+12 - pattern "IDENT" wildcard
+while w;
+Select w pattern w("x31", _)
+36
+5000
+13 - pattern nonexistent "IDENT" wildcard
+while w; variable v;
+Select w pattern w("v", _)
+none
+5000
+14 - pattern nonexistent "IDENT" wildcard
+while w;
+Select w pattern w("w", _)
+none
+5000
+15 - invalid pattern w, semantic error
+while w; variable v;
+Select w pattern w("v","x1")
+SemanticError
+5000
+16 - invalid pattern w, syntax error
+while w; variable v;
+Select w pattern w("v", ")
+SyntaxError
+5000
+17 - invalid pattern w, syntax error
+while w; variable v;
+Select w pattern w("v", "_")
+SyntaxError
+5000

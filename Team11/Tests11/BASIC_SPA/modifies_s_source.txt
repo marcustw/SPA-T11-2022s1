@@ -1,0 +1,92 @@
+procedure ThreeNestedWhileLoopTop {
+  while((nestedWhileLoopAtTop == 1) && (((nestedWhileLoopAtMid == 0) && (nestedWhileLoopAtBot == 0)) || (bypass != 1))) {
+    while(((nestedWhileLoop > 0) && (a+b>c-d)) || (((a == b) && (c == d)) || ((a == c) && ((b == d) && (a != d))))) {
+      if(a+b == 10) then {
+        nested = true;
+        nestedAllAtTop = 1;
+        while(c+d >= 10) {
+          if (c == d + 1) then {
+            c = c - 1;
+            d = d + 1;
+          } else {
+            nestedWhiles = 5;
+          }
+        }
+      } else {
+        nested = alsoTrue;
+      }
+      nestedWhileLoopAtTop = 0;
+    }  
+  }
+  end = true;
+  someMoreStuff = true;
+  nestedWhileLoopAtMid = 1;
+}
+
+procedure FourtNestedWhileLoopMid {
+	read x1;
+	read x2;
+	print x5;
+	print x2;
+	if (nestedWhileLoopAtMid == 1) then {
+	  roger = false;
+	} else {
+	  x1 = 1;
+	}
+	while((nestedWhileLoopAtTop == 0) && (((nestedWhileLoopAtMid == 1) && (nestedWhileLoopAtBot == 0)) || (bypass != 1))) {
+		while(((nestedWhileLoop > 0) && (a+b>c-d)) || (((a == b) && (c == d)) || ((a == c) && ((b == d) && (a != d))))) {
+		    if(a+b == 10) then {
+				nested = true;
+				nestedAllAtTop = 1;
+				while(c+d >= 10) {
+				    if (c == d + 1) then {
+						c = c - 1;
+						d = d + 1;
+					} else {
+						nestedWhiles = 5;
+					}
+				}
+			} else {
+				y = 4;
+				nested = alsoTrue;
+				call ThreeNestedWhileLoopTop;
+			}
+		  nestedWhileLoopAtTop = 0;
+		}  
+	}
+	x = 2;
+	x = x + x + 2 * y;
+	print x1;
+	print x2;
+	read x2;
+	read x3;
+}
+
+procedure FiveNestedWhileLoopAtBot {
+	read x1;
+	read x4;
+	read x5;
+	read x2;
+	while((nestedWhileLoopAtTop == 0) && (((nestedWhileLoopAtMid == 0) && (nestedWhileLoopAtBot == 1)) || (bypass != 1))) {
+		while(((nestedWhileLoop > 0) && (a+b>c-d)) || (((a == b) && (c == d)) || ((a == c) && ((b == d) && (a != d))))) {
+		    if(a+b == 10) then {
+				nested = true;
+				nestedAllAtTop = 1;
+				while(c+d >= 10) {
+				    if (c == d + 1) then {
+						c = c - 1;
+						d = d + 1;
+						call FourtNestedWhileLoopMid;
+					} else {
+						nestedWhiles = 5;
+					}
+				}
+			} else {
+				y = 4;
+				nested = alsoTrue;
+				call ThreeNestedWhileLoopTop;
+			}
+		  nestedWhileLoopAtBot = 0;
+		}  
+	}
+}

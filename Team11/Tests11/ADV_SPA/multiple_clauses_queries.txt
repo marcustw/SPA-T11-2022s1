@@ -1,0 +1,115 @@
+1 - multi-clause query 5 clauses no ans
+stmt s, s1; assign a, a1; print pn, pn1; procedure p; variable v; read r, r1;
+Select s such that Follows(s , a) and Follows(a, pn) with r.varName = "x2" such that Follows(r1, pn1) pattern a(v, _"x21"_)
+none
+5000
+2 - multi-clause query 5 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select s such that Follows(s , a) and Follows(a2, pn) with r.varName = "x2" such that Follows(r1, pn1) pattern a1(v, _"x21"_)
+2, 10, 12, 18, 19, 21, 22
+5000
+3 - multi-clause query 5 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select s such that Follows(s , a) and Follows(a2, pn) with r.varName = "x2" such that Follows(r1, pn1) pattern a1(v, _"x21"_)
+2, 10, 12, 18, 19, 21, 22
+5000
+4 - multi-clause query 5 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select r1 such that Follows(s , a) and Follows(a2, pn) with r.varName = "x2" such that Follows(r1, pn1) pattern a1(v, _"x21"_)
+30
+5000
+5 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select BOOLEAN with s.stmt# = 36 and pn.varName = "x30" and v.varName = "x27" and r1.varName = "x2" and p.procName = "first" and r.varName = pn.varName
+TRUE
+5000
+6 - multi-clause query 6 clauses no ans Boolean
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select BOOLEAN with s.stmt# = 37 and pn.varName = "x30" and v.varName = "x27" and r1.varName = "x2" and p.procName = "first" and r.varName = pn.varName
+FALSE
+5000
+7 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select pn with s.stmt# = 36 and pn.varName = "x30" and v.varName = "x27" and r1.varName = "x2" and p.procName = "first" and r.varName = pn.varName
+31
+5000
+8 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select pn.varName with s.stmt# = 36 and pn.varName = "x30" and v.varName = "x27" and r1.varName = "x2" and p.procName = "first" and r.varName = pn.varName
+x30
+5000
+9 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v; read r, r1;
+Select pn.stmt# with s.stmt# = 36 and pn.varName = "x30" and v.varName = "x27" and r1.varName = "x2" and p.procName = "first" and r.varName = pn.varName
+31
+5000
+10 - multi-clause query 7 clauses Boolean
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w;
+Select BOOLEAN pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+TRUE
+5000
+11 - multi-clause query 7 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w;
+Select a pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+35
+5000
+12 - multi-clause query 7 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w;
+Select a1 pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+11
+5000
+13 - multi-clause query 7 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w;
+Select a2 pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+22, 23
+5000
+14 - multi-clause query 7 clauses no ans
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w; call c;
+Select c pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+none
+5000
+15 - multi-clause query 7 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1; read r, r1; if ifs; while w;
+Select a2 pattern a("x35", _) and a1(v, _) and ifs(v, _, _) such that Parent(ifs, a1) and Follows*(a2, w) pattern w(v1, _) and a2(v1, _)
+22, 23
+5000
+16 - multi-clause query 6 clauses Boolean
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select BOOLEAN such that Modifies("first", v) and Modifies("third", v1) and Modifies("fourth", v2) pattern a(v, _) and a1(v1, _) and a2(v2, _)
+TRUE
+5000
+17 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select a such that Modifies("first", v) and Modifies("third", v1) such that Modifies("fourth", v2) pattern a(v, _) and a1(v1, _) pattern a2(v2, _)
+3, 5, 6, 9, 11, 12, 13, 14
+5000
+18 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select a1 such that Modifies("first", v) and Modifies("third", v1) such that Modifies("fourth", v2) pattern a(v, _) and a1(v1, _) pattern a2(v2, _)
+18, 19, 20
+5000
+19 - multi-clause query 6 clauses
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select a2 such that Modifies("first", v) and Modifies("third", v1) such that Modifies("fourth", v2) pattern a(v, _) and a1(v1, _) pattern a2(v2, _)
+22, 23, 25, 27, 35
+5000
+20 - multi-clause query 6 clauses Syntax error
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select a2 such that Modifies("first", v) and Modifies("third", v1) such that Modifies("fourth", v2) and a(v, _) and a1(v1, _) pattern a2(v2, _)
+SyntaxError
+5000
+21 - multi-clause query 6 clauses Boolean
+stmt s, s1; assign a, a1, a2; print pn, pn1; procedure p; variable v, v1, v2; read r, r1;
+Select BOOLEAN such that Next(s, a) and Next(s, a1) and Next(s, a2) with a.stmt# = a1.stmt# and a1.stmt# = a2.stmt# and a.stmt# = a2.stmt#
+TRUE
+5000
+22 - multi-clause query 8 clauses Boolean
+stmt s, s1, s2; assign a, a1, a2; print pn, pn1; procedure p, p1, p2; variable v, v1, v2; read r, r1;
+Select BOOLEAN such that Next(s, a) and Next(s, a1) and Next(s, a2) and Modifies(p, v) with "first" = p.procName pattern a(v, _) and a1(v1, _) and a2(v2, _)
+TRUE
+5000
+23 - multi-clause query 8 clauses Tuple
+stmt s, s1, s2; assign a, a1, a2; print pn, pn1; procedure p, p1, p2; variable v, v1, v2; read r, r1;
+Select <a, a1, a2> such that Next(s, a) and Next(s, a1) and Next(s, a2) and Modifies(p, v) with "first" = p.procName pattern a(v, _) and a1(_, _) and a2(_, _)
+3 3 3, 5 5 5, 5 5 6, 5 6 5, 5 6 6, 6 5 5, 6 5 6, 6 6 5, 6 6 6, 9 9 9, 11 11 11, 11 11 12, 11 12 11, 11 12 12, 12 11 11, 12 11 12, 12 12 11, 12 12 12, 13 13 13, 14 14 14
+10000

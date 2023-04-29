@@ -1,0 +1,114 @@
+procedure main {
+	read x1;
+	read x2;
+	x3 = (x1 + 2) / 9 - 3;
+	if (x3 > 10) then {
+		call second;
+	} else {
+		x6 = 1;
+		print x3;
+	}
+	while (x6 == 1) {
+		x9 = x2 + ((x1 / 2) + 8) - 2;
+		if (x9 == 10) then {
+			x1 = 2;
+		} else {
+			call third;
+			call fourth;
+		}
+		x6 = x6 - 1;
+	}
+	print x1;
+}
+
+procedure second {
+	x16 = 16;
+	print x16;
+}
+
+procedure third {
+	x18 = (1 + 5) / (7 * 7);
+	x19 = 0;
+	if (x19 > 1) then {
+		call fourth;
+	} else {
+		x19 = x19 + 1;
+		call fifth;
+	}
+}
+
+procedure fourth {
+	read x21;
+	x22 = 1234567;
+	x23 = x21 + x21 + x22 + x22;
+	while (x22 != x23) {
+		call second;
+		while (x22 > 9999) {
+			call second;
+			while (x23 < x22) {
+				x29 = 29;
+				while ((x22 == 0) || (x23 > 0))  {
+					read x31;	
+					x32 = 32;
+					while ((!(x31 < 0)) || (x22 >= 0)) {
+						if (((x23<=x22) && (x22>x31)) && (x22 != ((0+0*0)+1/4)%1)) then {
+							print x22;
+							while (x22 > 0) {
+								print x22;
+							}
+						} else {
+							x36 = 9;
+							print x36;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+procedure fifth {
+	read x21;
+	x22 = 1234567;
+	x23 = x21 + x21 + x22 + x22;
+	if (x22 != x23) then {
+		call second;
+		if (x22 > 9999) then {
+			call second;
+			if (x23 < x22) then {
+				x29 = 29;
+				if ((x22 == 0) || (x23 > 0)) then {
+					read x31;	
+					x32 = 32;
+					if ((!(x31 < 0)) || (x22 >= 0)) then {
+						if (((x23<=x22) && (x22>x31)) && (x22 != ((0+0*0)+1/4)%1)) then {
+							print x22;
+						} else {
+							x36 = 9;
+							print x36;
+						}
+						if (x31 != (8%2)) then {
+							print x23;
+						} else {
+							x31 = 4;
+						}
+					} else {
+						x31 = x22;
+					}
+				} else {
+					read x22;
+				}
+			} else {
+				if (3 < 4) then {
+					x35 = 35;
+				} else {
+					x34 = 34;
+				}
+			}
+		} else {
+			x22 = x22 + 1;
+		}
+	} else {
+		x22 = x23;
+	}
+}

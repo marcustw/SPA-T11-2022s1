@@ -1,0 +1,33 @@
+procedure ifInWhile{
+	x1 = x4 + 2;
+	if (x5 == x7) then {
+		x6 = 3 + 5;
+		print x8;
+		if (a == b) then {
+			read y;
+		} else {
+			print x;
+		}
+	} else {
+		read x7;
+		if (a == b) then {
+			read y;
+		} else {
+			print x;
+		}
+	}
+	while (x3 == 3) {
+		x4 = x4 + 5;
+		x6 = x8;
+		if (x1 == x2) then {
+			while (x3 == 3) {
+				x4 = x4 + 5;
+				x6 = x8;
+			}
+			x6 = x8;
+		}
+		else {
+			read x6;
+		}	
+	}
+}

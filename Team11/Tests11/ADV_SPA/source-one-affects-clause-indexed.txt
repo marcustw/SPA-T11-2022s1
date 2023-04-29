@@ -1,0 +1,48 @@
+procedure First {
+01	read x;
+02	read z;
+03	call Second;
+}
+
+procedure Second {
+04	x = 0;
+05	i = 5;
+06	while (i != 0) {
+07		x = x + 2 * y;
+08		call Third;
+09		i = i - 1;
+	}
+10	if (x == 1) then {
+11		x = x + 1;
+	} else {
+12		z = 1;
+	}
+13	z = z + x + 1;
+14	y = z + 2;
+15	x = x * y + z;
+}
+
+procedure Third {
+16	z = 5;
+17	v = z;
+18	print v;
+}
+
+procedure p {
+19	x19 = 1;
+20	x20 = 2;
+21	x21 = x20;
+22	call q;
+23	x21 = x19 + x20 + x21;
+}
+
+procedure q {
+24	x19 = 5;
+25	x25 = 4;
+26	if(x25 > 0) then {
+27		x25 = x19 + 1;
+	} else {
+28		x20 = x19 + x21;
+	}
+29	x19 = x25 + 1;
+}

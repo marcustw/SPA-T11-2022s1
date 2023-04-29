@@ -1,0 +1,80 @@
+1 - select p
+stmt s1; variable v; procedure p;
+Select p
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+2 - select uses p
+stmt s1; variable v; procedure p;
+Select p such that Uses(p, v)
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+3 - select uses p
+stmt s1; variable v; procedure p;
+Select p such that Uses(p, _)
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+4 - select if
+stmt s1; variable v; procedure p; if i;
+Select i such that Uses(p, _)
+3, 7, 20, 25, 29, 49, 53
+5000
+5 - select if
+stmt s1; variable v; procedure p; if i;
+Select i such that Uses(p, "not")
+
+5000
+6 - select uses p
+stmt s1; variable v; procedure p; if i;
+Select p such that Uses(p, "y")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid
+5000
+7 - select uses p
+stmt s1; variable v; procedure p; if i;
+Select p such that Uses(p, "x5")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid
+5000
+8 - select uses p
+stmt s1; variable v; procedure p; if i;
+Select p such that Uses(p, "bypass")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+9 - select uses p
+stmt s1; variable v; procedure p; if i;
+Select p such that Uses(p, "true")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid, ThreeNestedWhileLoopTop
+5000
+10 - select uses p
+stmt s1; variable v; procedure p; if i;
+Select p such that Uses(p, "x")
+FiveNestedWhileLoopAtBot, FourtNestedWhileLoopMid
+5000
+11 - select uses p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Uses(c, "x")
+56
+5000
+12 - select uses p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Uses(c, "true")
+35, 56, 60
+5000
+13 - select uses p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Uses(c, _)
+35, 56, 60
+5000
+14 - select c
+stmt s1; variable v; procedure p; if i; call c;
+Select c
+35, 56, 60
+5000
+15 - select c uses p lhs call
+stmt s1; variable v; procedure p; if i; call c;
+Select c such that Uses(c, "not")
+
+5000
+16 - select tuple uses
+procedure p; variable v;
+Select <p.procName, v.varName> such that Uses(p, v)
+FiveNestedWhileLoopAtBot a, FiveNestedWhileLoopAtBot alsoTrue, FiveNestedWhileLoopAtBot b, FiveNestedWhileLoopAtBot bypass, FiveNestedWhileLoopAtBot c, FiveNestedWhileLoopAtBot d, FiveNestedWhileLoopAtBot false, FiveNestedWhileLoopAtBot nestedWhileLoop, FiveNestedWhileLoopAtBot nestedWhileLoopAtBot, FiveNestedWhileLoopAtBot nestedWhileLoopAtMid, FiveNestedWhileLoopAtBot nestedWhileLoopAtTop, FiveNestedWhileLoopAtBot true, FiveNestedWhileLoopAtBot x, FiveNestedWhileLoopAtBot x1, FiveNestedWhileLoopAtBot x2, FiveNestedWhileLoopAtBot x5, FiveNestedWhileLoopAtBot y, FourtNestedWhileLoopMid a, FourtNestedWhileLoopMid alsoTrue, FourtNestedWhileLoopMid b, FourtNestedWhileLoopMid bypass, FourtNestedWhileLoopMid c, FourtNestedWhileLoopMid d, FourtNestedWhileLoopMid false, FourtNestedWhileLoopMid nestedWhileLoop, FourtNestedWhileLoopMid nestedWhileLoopAtBot, FourtNestedWhileLoopMid nestedWhileLoopAtMid, FourtNestedWhileLoopMid nestedWhileLoopAtTop, FourtNestedWhileLoopMid true, FourtNestedWhileLoopMid x, FourtNestedWhileLoopMid x1, FourtNestedWhileLoopMid x2, FourtNestedWhileLoopMid x5, FourtNestedWhileLoopMid y, ThreeNestedWhileLoopTop a, ThreeNestedWhileLoopTop alsoTrue, ThreeNestedWhileLoopTop b, ThreeNestedWhileLoopTop bypass, ThreeNestedWhileLoopTop c, ThreeNestedWhileLoopTop d, ThreeNestedWhileLoopTop nestedWhileLoop, ThreeNestedWhileLoopTop nestedWhileLoopAtBot, ThreeNestedWhileLoopTop nestedWhileLoopAtMid, ThreeNestedWhileLoopTop nestedWhileLoopAtTop, ThreeNestedWhileLoopTop true
+5000

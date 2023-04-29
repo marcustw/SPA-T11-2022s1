@@ -1,0 +1,15 @@
+procedure main {
+ 	a = 2;
+    while (n > 3) {
+		Z = 4;
+		while (a < 2) {
+			y = 100; 
+			Z = 6;
+			x = 5; }
+		X = x; }
+	a = 2;
+	if (a > 0) then {
+	  X = a;
+	} else {
+	  X = a + 20; }
+}

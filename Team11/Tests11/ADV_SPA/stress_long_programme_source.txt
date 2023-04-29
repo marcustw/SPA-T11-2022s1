@@ -1,0 +1,411 @@
+procedure Apple {
+ if (!(x == 5)) then {
+   read a;
+   read b;
+   print c;
+   print d;
+ } else {
+   read c;
+   read d;
+   print e;
+   print f;
+ }
+ while (((17 != 12) && (x1 > 0)) || ((x2 < 0) && (!(y1 == 8)))) {
+   if ((x == 5) || (y == 2)) then {
+	  g = a +  b + c * d * e * f;
+	  read h;
+	  read a;
+	  read b;
+	  read c;
+	  read d;
+	  read e;
+	  read f;
+   } else {
+      i = a * b + c * d + e * f + (22 * x);
+	  read h;
+	  read a;
+	  read b;
+	  read c;
+	  read d;
+	  read e;
+	  read f;
+   }
+ }
+ if ((22 == x1) && (y1 == 22)) then {
+	 while (((17 != 12) && (x1 > 0)) || ((x2 < 0) && (!(y1 == 8)))) {
+	   if ((x == 5) || (y == 2)) then {
+		  g = a +  b + c * d * e * f;
+		  read h;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+	   } else {
+		  i = a * b + c * d + e * f + (22 * x);
+		  read h;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+	   }
+	   while (h == 5) {
+		  while ((g == 16) && (h != 900)) {
+		    a = apple;
+			b = ball;
+			c = cat;
+			d = dog;
+			e = elePhAnT;
+			s = Snakes;
+			g = g + 1;
+			h = h - 1;
+			while (me != attached) {
+				hitmeup = 1;
+				if ((you == hot) && (me == single)) then {
+					we = can + have + a + good + time;
+					me = attached;
+				} else {
+				    find = another + 1;
+				}
+			}
+		  }
+	   }
+	   
+	 }
+  } else {
+		  read j;
+		  read k;
+		  read l;
+		  read m;
+		  read n;
+		  read o;
+		  read p;
+		  
+		  read q;
+		  read r;
+		  read s;
+		  read t;
+		  read u;
+		  read v;
+		  read w;
+		  
+		  print j;
+		  print k;
+		  print l;
+		  print m;
+		  print n;
+		  print o;
+		  print p;
+		  
+		  print q;
+		  print r;
+		  print s;
+		  print t;
+		  print u;
+		  print v;
+		  print w;
+		  
+  }
+  
+   if ((x2 < 44) && (60 > y2)) then {
+	 while (((17 != 12) && (x1 > 0)) || ((x2 < 0) && (!(y1 == 8)))) {
+	   if ((x == 5) || (y == 2)) then {
+		  g = a +  b + c * d * e * f;
+		  read h;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+	   } else {
+		  i = a * b + c * d + e * f + (22 * x);
+		  read h;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+	   }
+	   while (h == 5) {
+		  while ((g == 16) && (h != 900)) {
+		    a = apple;
+			b = ball;
+			c = cat;
+			d = dog;
+			e = elePhAnT;
+			s = Snakes;
+			g = g + 1;
+			h = h - 1;
+			while (me != attached) {
+				if ((you == hot) && (me == single)) then {
+		and = all + the + other + boys + try + to / chaseMe;
+					we = can + have + a + good + time;
+					me = attached;
+					so = soHeresMyNumber + and;
+					call MeMaybe;
+				} else {
+				    find = another + 1;
+				}
+				
+				hitmeup = 1;
+			}
+		  }
+	   }
+	   x2 = 100;
+	   y2 = 123;
+	 }
+  } else {
+		  read j;
+		  read k;
+		  read l;
+		  read m;
+		  read n;
+		  read o;
+		  read p;
+		  
+		  read q;
+		  read r;
+		  read s;
+		  read t;
+		  read u;
+		  read v;
+		  read w;
+  }
+}
+
+procedure Boy {
+  call Cat;
+  		  read j;
+		  read k;
+		  read l;
+		  read m;
+		  read n;
+		  read o;
+		  read p;
+		  
+		  read q;
+		  read r;
+		  read s;
+		  read t;
+		  read u;
+		  read v;
+		  read w;
+}
+
+procedure Cat {
+  getPhone = true;
+  call MeMaybe;
+  
+  while (me != attached) {
+		if ((you == hot) && (me == single)) then {
+										and = all + the + other + boys + try + to / chaseMe;
+			we = can + have + a + good + time;
+			me = attached;
+			so = soHeresMyNumber + and;
+			call MeMaybe;
+		} else {
+			find = another + 1;
+		}
+		
+		hitmeup = 1;
+	}
+}
+
+procedure Dog {
+  bark = false;
+	while (trained == false) {
+		bark = true;
+		if (canTrain == true) then {
+		    trained = true;
+			bark = false;
+		} else {
+		  woof = woof * 10 + meow * 20;
+		}
+	}
+	
+	woof = 1;
+}
+
+procedure MeMaybe {
+ x = (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2);
+  
+  y = x + x + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2) + (1 + 2 + 3 + 4 + 5) * (1 % 2 - 3 - 4 - 5) / (y + 2 + 2 - 2 - 2);
+		  read j;
+		  read k;
+		  read l;
+		  read m;
+		  read n;
+		  read o;
+		  read p;
+		  
+		  read q;
+		  read r;
+		  read s;
+		  read t;
+		  read u;
+		  read v;
+		  read w;
+		  
+	read h;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;	  
+	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+	  
+	  
+	callMoreLaCB = 0;
+	
+	call Dog;
+}
+
+
+procedure VeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongProcedureName {
+  troll = yes;
+  print troll;
+  call Dog;
+}
+
+procedure AllRead {
+  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+		  read a;
+		  read b;
+		  read c;
+		  read d;
+		  read e;
+		  read f;
+}
+
+procedure AllPrint {
+	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+	  	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+	  	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+	  	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+	  	  print j;
+	  print k;
+	  print l;
+	  print m;
+	  print n;
+	  print o;
+	  print p;
+	  
+	  print q;
+	  print r;
+	  print s;
+	  print t;
+	  print u;
+	  print v;
+	  print w;
+}

@@ -1,0 +1,150 @@
+1 - select stmts with, uses
+stmt s1; variable v;
+Select s1 with s1.stmt# = 1 such that Uses(s1, v)
+1
+5000
+2 - select stmts with
+stmt s1; variable v;
+Select s1 with 1 = s1.stmt# such that Uses(s1, "not")
+
+5000
+3 - select stmts with
+stmt s1; variable v;
+Select s1 with 1 = s1.stmt# such that Modifies(s1, v)
+1
+5000
+4 - select stmts with
+stmt s1; variable v;
+Select s1 with 1 = s1.stmt# such that Modifies(s1, "not")
+
+5000
+5 - select stmts with syntax error + semantic error
+stmt s1; variable v;
+Select s1 with "x" = "1" such that Uses(s1, v) and Modifies(s, v)
+SyntaxError
+5000
+6 - select stmts with semantic error
+stmt s1; variable v;
+Select s1 with s1.stmt# = 1 such that Uses(s1, v) and Modifies(s, v)
+SemanticError
+5000
+7 - select stmts with uses modifies
+stmt s1; variable v; while w; if i;
+Select s1 with s1.stmt# = i.stmt# such that Uses(s1, v) and Modifies(s1, v)
+3, 7, 25, 29, 49, 53
+5000
+8 - select stmts with uses modifies
+stmt s1; variable v; while w; if i;
+Select s1 with s1.stmt# = w.stmt# such that Uses(s1, v) and Modifies(s1, v)
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+9 - select stmts with uses modifies
+stmt s1; variable v; while w; if i;
+Select v such that Uses(s1, v) and Modifies(s1, v)
+c, d, nestedWhileLoopAtTop, nestedWhileLoopAtMid, nestedWhileLoopAtBot, x, x1, x2, y
+5000
+10 - select stmts with uses modifies
+stmt s1; variable v; while w; if i;
+Select v such that Uses(s1, v) and Modifies(s1, v)
+c, d, nestedWhileLoopAtTop, nestedWhileLoopAtMid, nestedWhileLoopAtBot, x, x1, x2, y
+5000
+11 - select stmts uses modifies 5 clauses
+stmt s1; variable v; while w; if i;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v)
+c, d
+5000
+12 - select stmts uses modifies 6 clauses
+stmt s1; variable v; while w; if i;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v) such that Uses(i, v)
+c, d
+5000
+13 - select stmts uses modifies 6 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v)
+c, d
+5000
+14 - select stmts uses modifies 8 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v)
+c, d
+10000
+15 - select stmts uses modifies with 9 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v.varName = "c"
+c
+5000
+16 - select stmts uses modifies with 9 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d"
+c, d
+5000
+17 - select stmts uses modifies with 10 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" with v.varName = "d"
+d
+5000
+18 - select stmts uses modifies with 10 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v.varName = v2.varName
+d
+5000
+19 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, v) and Modifies(p, v)
+c, d
+5000
+20 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(ca, v) and Modifies(ca, v)
+c, d
+5000
+21 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, "nested") and Modifies(p, v)
+
+5000
+22 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(ca, _) and Modifies(ca, "nested")
+c, d
+5000
+23 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, _) and Modifies(ca, "nested")
+c, d
+5000
+24 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, "true") and Modifies(ca, "nested")
+c, d
+5000
+25 - select stmts uses modifies with 13 clauses syntaxError
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, _) and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, "true") and Modifies(ca, "nested") with v.varName = "1"
+SyntaxError
+5000
+26 - select stmts uses modifies with 12 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca;
+Select v such that Uses(s1, v) and Modifies(s1, v) such that Modifies(23, v) and Uses(29, v) and Uses(w, v2) such that Uses(i2, v) such that Modifies(w, "u") and Uses(w, v) with v2.varName = "d" and v2.varName = v2.varName such that Uses(p, "true") and Modifies(ca, "nested")
+
+5000
+27 - select stmts uses modifies with 6 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca; constant c;
+Select <v, v2> such that Uses(s1, v) and Modifies(s1, v) such that Modifies(ca, v) and Uses(p, v) with s1.stmt# = c.value such that Modifies(3, "c")
+d nestedWhileLoopAtTop, nestedWhileLoopAtTop end, c nestedWhileLoopAtBot, d c, d nestedWhileLoopAtMid, c nested, d nestedWhileLoopAtBot, d true, d bypass, d b, d nestedWhileLoop, nestedWhileLoopAtTop nestedWhiles, d a, nestedWhileLoopAtTop nestedWhileLoopAtTop, d d, d nested, d nestedAllAtTop, c nestedWhiles, d x2, nestedWhileLoopAtTop a, c x2, d nestedWhiles, c x, c true, d alsoTrue, d end, c x4, d someMoreStuff, d x1, d x5, d roger, c nestedAllAtTop, d false, d y, d x, d x3, c alsoTrue, d x4, c b, c nestedWhileLoopAtTop, c nestedWhileLoopAtMid, c c, c nestedWhileLoop, c bypass, c a, nestedWhileLoopAtTop nested, nestedWhileLoopAtTop nestedWhileLoopAtMid, c d, nestedWhileLoopAtTop nestedAllAtTop, c end, c someMoreStuff, nestedWhileLoopAtTop b, nestedWhileLoopAtTop bypass, c x1, c x5, c roger, c false, c y, c x3, nestedWhileLoopAtTop c, nestedWhileLoopAtTop true, nestedWhileLoopAtTop nestedWhileLoopAtBot, nestedWhileLoopAtTop nestedWhileLoop, nestedWhileLoopAtTop d, nestedWhileLoopAtTop x2, nestedWhileLoopAtTop alsoTrue, nestedWhileLoopAtTop someMoreStuff, nestedWhileLoopAtTop x1, nestedWhileLoopAtTop x5, nestedWhileLoopAtTop roger, nestedWhileLoopAtTop false, nestedWhileLoopAtTop y, nestedWhileLoopAtTop x, nestedWhileLoopAtTop x3, nestedWhileLoopAtTop x4
+5000
+28 - select stmts uses modifies with 6 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca; constant c;
+Select <v, v2> such that Uses(s1, v) and Modifies(s1, v) such that Modifies(ca, v) and Uses(p, v) with s1.stmt# = c.value and Modifies(3, "c")
+SyntaxError
+5000
+29 - select stmts uses modifies with 6 clauses
+stmt s1, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca; constant c;
+Select <s1, v> such that Uses(s1, v) and Modifies(s1, v) such that Modifies(ca, v) and Uses(p, v) with s1.stmt# = c.value such that Modifies(3, "c")
+2 d, 2 c, 1 nestedWhileLoopAtTop, 1 d, 1 c
+5000
+29 - select  fake syn
+stmt BOOLEAN, s2; variable v, v2; while w, w2; if i, i2; procedure p; call ca; constant c;
+Select BOOLEAN
+1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 6, 60, 61, 7, 8, 9
+5000

@@ -1,0 +1,190 @@
+1 - select stmts modifies
+stmt s1; variable v;
+Select s1 such that Modifies(s1, v)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61
+5000
+2 - select stmt modifies
+stmt s1; variable v;
+Select s1 such that Modifies(s1, "temp")
+
+5000
+3 - select stmt modifies
+stmt s1; variable v;
+Select s1 such that Modifies(s1, "true")
+
+5000
+4 - select stmt modifies
+stmt s1; variable v;
+Select s1 such that Modifies(s1, "c")
+1, 2, 3, 6, 7, 8, 23, 24, 25, 28, 29, 30, 35, 47, 48, 49, 52, 53, 54, 56, 60
+5000
+5 - select stmt modifies
+stmt s1;
+Select s1 such that Modifies(s1, _)
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61
+5000
+6 - select stmt modifies with
+stmt s1; variable v;
+Select s1 such that Modifies(s1, v) with v.varName = "y"
+23, 24, 25, 33, 47, 48, 49, 52, 53, 56, 58
+5000
+7 - select stmt modifies with
+stmt s1; variable v;
+Select s1 such that Modifies(s1, "x2") with v.varName = "y"
+17, 41, 46, 47, 48, 49, 52, 53, 56
+5000
+8 - select stmt modifies
+stmt s1; variable v;
+Select s1 such that Modifies(s1, "y")
+23, 24, 25, 33, 47, 48, 49, 52, 53, 56, 58
+5000
+9 - select stmt modifies
+variable v;
+Select v such that Modifies(6, v)
+c, d, nestedWhiles
+5000
+10 - select stmt modifies
+variable v;
+Select v such that Modifies(7, v)
+c, d, nestedWhiles
+5000
+11 - select stmt modifies
+variable v;
+Select v such that Modifies(1, v)
+nested, c, nestedAllAtTop, d, nestedWhileLoopAtTop, nestedWhiles
+5000
+12 - select stmt modifies
+variable v;
+Select v such that Modifies(1, _)
+a, alsoTrue, b, bypass, c, d, end, false, nested, nestedAllAtTop, nestedWhileLoop, nestedWhileLoopAtBot, nestedWhileLoopAtMid, nestedWhileLoopAtTop, nestedWhiles, roger, someMoreStuff, true, x, x1, x2, x3, x4, x5, y
+5000
+12 - select v
+variable v;
+Select v
+a, alsoTrue, b, bypass, c, d, end, false, nested, nestedAllAtTop, nestedWhileLoop, nestedWhileLoopAtBot, nestedWhileLoopAtMid, nestedWhileLoopAtTop, nestedWhiles, roger, someMoreStuff, true, x, x1, x2, x3, x4, x5, y
+5000
+13 - select modifies invalid modifies semantic error
+variable v;
+Select v such that Modifies(_, _)
+SemanticError
+5000
+14 - select modifies invalid modifies syntax error
+variable v;
+Select v such that Modifies(, _)
+SyntaxError
+5000
+15 - select modifies invalid modifies semantic error
+variable v;
+Select v such that Modifies(s, _)
+SemanticError
+5000
+16 - select modifies invalid modifies syntax error
+variable v;
+Select v such that Modifies(_)
+SyntaxError
+5000
+17 - select modifies invalid modifies syntax error
+variable v;
+Select v Modifies(_)
+SyntaxError
+5000
+18 - select modifies invalid modifies syntax error
+variable v; stmt s;
+Select v such that Modifies(s,"x+y")
+SyntaxError
+5000
+19 - select modifies invalid modifies syntax error
+variable v; stmt s;
+Select v such that Modifies(s,"_x_")
+SyntaxError
+5000
+20 - select modifies invalid modifies semantic error
+variable v; stmt s;
+Select v such that Modifies(v, _)
+SemanticError
+5000
+21 - select modifies
+variable v; stmt s; assign a;
+Select a such that Modifies(a, v)
+10, 11, 12, 13, 14, 15, 21, 22, 26, 27, 30, 31, 32, 33, 34, 36, 37, 38, 4, 5, 50, 51, 54, 55, 57, 58, 59, 61, 8, 9
+5000
+22 - select modifies lhs assign
+variable v; stmt s; assign a;
+Select a such that Modifies(a, _)
+10, 11, 12, 13, 14, 15, 21, 22, 26, 27, 30, 31, 32, 33, 34, 36, 37, 38, 4, 5, 50, 51, 54, 55, 57, 58, 59, 61, 8, 9
+5000
+23 - select modifies lhs read
+variable v; stmt s; assign a; read r;
+Select r such that Modifies(r, _)
+16, 17, 41, 42, 43, 44, 45, 46
+5000
+23 - select modifies lhs print
+variable v; stmt s; assign a; read r; print p;
+Select p such that Modifies(p, _)
+
+5000
+24 - select read
+variable v; stmt s; assign a; read r; print p;
+Select r
+16, 17, 41, 42, 43, 44, 45, 46
+5000
+24 - select modifies lhs constant semanticerror
+variable v; stmt s; assign a; read r; print p; constant c;
+Select c such that Modifies(c, _)
+SemanticError
+5000
+25 - select modifies lhs variable semanticerror
+variable v; stmt s; assign a; read r; print p; constant c;
+Select v such that Modifies(v, _)
+SemanticError
+5000
+26 - select modifies lhs if
+if if;
+Select if such that Modifies(if, _)
+3, 7, 20, 25, 29, 49, 53
+5000
+27 - select modifies lhs while
+while w;
+Select w such that Modifies(w, _)
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+28 - select modifies lhs while rhs not v
+while w; if if;
+Select w such that Modifies(w,if)
+SemanticError
+5000
+29 - select modifies lhs if rhs not v
+while w; if if;
+Select w such that Modifies(if,w)
+SemanticError
+5000
+30 - select modifies lhs if rhs v
+while w; if if; variable v;
+Select if such that Modifies(if,v)
+3, 7, 20, 25, 29, 49, 53
+5000
+31 - select modifies lhs w rhs v
+while w; if if; variable v;
+Select w such that Modifies(w,v)
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+32 - select modifies lhs if rhs v
+while w; if if;
+Select if such that Modifies(if,"c")
+3, 7, 25, 29, 49, 53
+5000
+33 - select modifies lhs w rhs v
+while w; if if;
+Select w such that Modifies(w,"d")
+1, 2, 6, 23, 24, 28, 47, 48, 52
+5000
+34 - select if
+while w; if if; variable v;
+Select if such that Modifies(w,"d")
+3, 7, 20, 25, 29, 49, 53
+5000
+35 - select if
+while w; if if; variable v;
+Select if such that Modifies(w,"not")
+
+5000

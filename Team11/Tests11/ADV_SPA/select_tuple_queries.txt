@@ -1,0 +1,90 @@
+1 - select tuple - no clause
+assign a; call c;
+Select <a, c>
+3 5, 3 12, 3 13, 3 20, 3 25, 3 27, 3 29, 6 5, 6 12, 6 13, 6 20, 6 25, 6 27, 6 29, 9 5, 9 12, 9 13, 9 20, 9 25, 9 27, 9 29, 11 5, 11 12, 11 13, 11 20, 11 25, 11 27, 11 29, 14 5, 14 12, 14 13, 14 20, 14 25, 14 27, 14 29, 16 5, 16 12, 16 13, 16 20, 16 25, 16 27, 16 29, 18 5, 18 12, 18 13, 18 20, 18 25, 18 27, 18 29, 19 5, 19 12, 19 13, 19 20, 19 25, 19 27, 19 29, 22 5, 22 12, 22 13, 22 20, 22 25, 22 27, 22 29, 23 5, 23 12, 23 13, 23 20, 23 25, 23 27, 23 29, 36 5, 36 12, 36 13, 36 20, 36 25, 36 27, 36 29
+5000
+2 - select tuple - all procedures - multiple tuple elements
+procedure p;
+Select <p, p, p>
+main main main, second second second, third third third, fourth fourth fourth
+5000
+3 - select tuple - all procedures - multiple tuple elements
+procedure p, p1;
+Select <p, p1>
+fourth fourth, fourth main, fourth second, fourth third, main fourth, main main, main second, main third, second fourth, second main, second second, second third, third fourth, third main, third second, third third
+5000
+4 -  select tuple - valid follows clause - valid parent clause
+stmt s; print p;
+Select <s, p> such that Parent(s, 9) and Follows(16, p)
+8 17
+5000
+5 -  select tuple - valid follows clause - valid parent clause 
+stmt s, s1; print p;
+Select <s, p, s1> such that Parent(s, 9) and Follows(16, p) and Follows(s1, 7)
+8 17 6
+5000
+6 -  select tuple - proc/stmt decl - valid follows clause - valid parentT clause 
+stmt s, s1; print p;
+Select <p, s1, s> such that Follows(16, p) and Follows(s1, 7) and Parent*(s, 12)
+17 6 10, 17 6 8
+5000
+7 - select tuple - while/stmt decl - valid parent clause
+while w; stmt s;
+Select <w, s> such that Parent(s, 37)
+8 34, 24 34, 26 34, 28 34, 30 34, 33 34
+5000
+8 - select tuple - while/if decl - valid parent clause eval true
+while w; if i; stmt s;
+Select <w, i> such that Parent(s, 37)
+8 4, 8 10, 8 34, 24 4, 24 10, 24 34, 26 4, 26 10, 26 34, 28 4, 28 10, 28 34, 30 4, 30 10, 30 34, 33 4, 33 10, 33 34
+5000
+9 - select tuple - if/proc decl - valid parent clause eval true
+if i; procedure p;
+Select <p, i>
+main 4, main 10, main 34, second 4, second 10, second 34, third 4, third 10, third 34, fourth 4, fourth 10, fourth 34
+5000
+10 - invalid select tuple
+stmt s;
+Select <>
+SyntaxError
+5000
+11 - select tuple - boolean type ================ SemanticError
+stmt s;
+Select <s, BOOLEAN>
+SemanticError
+5000
+12 - select tuple - false pattern
+stmt s; assign a;
+Select <a, s> pattern a("FAKENEWS", _)
+none
+5000
+13 - select tuple - valid follows clause 
+stmt s, s1;
+Select <s, s1> such that Follows(1,s) and Follows(4, s1)
+2 8
+5000
+14 - select tuple - undeclared var - valid followsT clause - valid modifies clause
+stmt s; variable v;
+Select <s, a> such that Follows*(1,s) and Modifies(3, v)
+SemanticError
+5000
+15 - select tuple - multi-with clause ================ NOT IMPLEMENTED
+stmt s, s1;
+Select <s, s1> with s.stmt# = 2 and s1.stmt# = 37
+2 37
+5000
+16 - select tuple - multi-with clause - eval false ================ NOT IMPLEMENTED
+stmt s, s1;
+Select <s, s1> with s.stmt# = 2 and s1.stmt# = 22222
+none
+5000
+17 - select tuple - with clause ================ NOT IMPLEMENTED
+stmt s, s1;
+Select <s, s1> with s.stmt# = 5 such that Parent*(s1, 27)
+5 26, 5 24
+5000
+18 - select tuple - if declaration - valid follows clause
+if i; stmt s;
+Select <s, i> such that Follows(s, 24)
+23 4, 23 10, 23 34
+5000

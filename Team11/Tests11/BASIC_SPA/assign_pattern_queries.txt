@@ -1,0 +1,165 @@
+1 - pattern syntax error
+assign a; 
+Select a pattrn a(_, _)
+SyntaxError
+5000
+2 - pattern semantic error
+assign a; 
+Select a pattern assign(_, _)
+SemanticError
+5000
+3 - pattern semantic error
+assign a; 
+Select a1 pattern a(_, _)
+SemanticError
+5000
+4 - pattern double wildcard
+assign a; 
+Select a pattern a(_, _)
+1, 3, 5, 6, 7, 9, 10, 12, 13, 14, 15, 18, 19, 20
+5000
+5 - pattern semantic error
+assign aa; 
+Select aa pattern aa(_, _)
+1, 3, 5, 6, 7, 9, 10, 12, 13, 14, 15, 18, 19, 20
+5000
+6 - pattern synonym wildcard
+assign a; variable v;
+Select a pattern a(v, _)
+1, 3, 5, 6, 7, 9, 10, 12, 13, 14, 15, 18, 19, 20
+5000
+7 - pattern nonexistent synonym wildcard
+assign a; variable v;
+Select a pattern a(v1, _)
+SemanticError
+5000
+8 - pattern "IDENT" wildcard
+assign a;
+Select a pattern a("y", _)
+5, 18
+5000
+9 - pattern "IDENT" wildcard
+assign a;
+Select a pattern a("coupon", _)
+15
+5000
+10 - pattern nonexistent "IDENT" wildcard
+assign a; variable v;
+Select a pattern a("v", _)
+none
+5000
+11 - pattern nonexistent "IDENT" wildcard
+assign a;
+Select a pattern a("w", _)
+none
+5000
+12 - pattern partial wildcard
+assign a; 
+Select a pattern a(_, _"z"_)
+13, 19, 20
+5000
+13 - pattern partial wildcard
+assign a; 
+Select a pattern a(_, _"100"_)
+5, 9, 18
+5000
+14 - pattern partial wildcard
+assign a; 
+Select a pattern a(_, _"z+Z"_)
+13
+5000
+15 - pattern partial wildcard
+assign a; 
+Select a pattern a(_, _"5*6"_)
+20
+5000
+16 - pattern nonexistent partial wildcard
+assign a; 
+Select a pattern a(_, _"b"_)
+none
+5000
+17 - pattern nonexistent partial wildcard
+assign a; 
+Select a pattern a(_, _"99"_)
+none
+5000
+18 - pattern nonexistent partial wildcard
+assign a; 
+Select a pattern a(_, _"z+5"_)
+none
+5000
+19 - pattern full wildcard
+assign a; 
+Select a pattern a(_, "z")
+19
+5000
+20 - pattern full wildcard
+assign a; 
+Select a pattern a(_, "100")
+5, 9, 18
+5000
+21 - pattern nonexistent full wildcard
+assign a; 
+Select a pattern a(_, _"y*z+5*6"_)
+20
+5000
+22 - pattern nonexistent full wildcard
+assign a; 
+Select a pattern a(_, "b")
+none
+5000
+23 - pattern nonexistent full wildcard
+assign a; 
+Select a pattern a(_, _"y*z+8*6"_)
+none
+5000
+24 - pattern nonexistent partial wildcard
+assign a; 
+Select a pattern a(_, _"99"_)
+none
+5000
+25 - pattern double wildcard
+assign a; variable v;
+Select a pattern a(v, _"100"_)
+5, 9, 18
+5000
+26 - pattern partial ident
+assign a; variable v;
+Select a pattern a("z", _"4"_)
+none
+5000
+27 - pattern partial ident
+assign a; variable v;
+Select a pattern a("z", _"100"_)
+9
+5000
+28 - pattern var partial
+assign a; variable v;
+Select v pattern a(v, _"100"_)
+y, z
+5000
+29 - pattern var full
+assign a; variable v;
+Select v pattern a(v, "z")
+x
+5000
+30 - pattern var full
+assign a; variable v;
+Select v pattern a(v, "6")
+Z
+5000
+31 - pattern nonexistent var full
+assign a; variable v;
+Select v pattern a(v, "f")
+none
+5000
+32 - pattern nonexistent var full
+assign a; variable v;
+Select v pattern a(v, "99")
+none
+5000
+33 - invalid pattern a, syntax error
+assign a; variable v;
+Select a pattern a("v", ")
+SyntaxError
+5000
